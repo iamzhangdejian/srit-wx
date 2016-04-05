@@ -127,6 +127,16 @@ public class SworkLoginController extends BaseController {
         return "weixin/swork/taskList";
     }
     /**
+     * 历史信息列表，并跳转页面
+     * 
+     */
+    @RequestMapping(params="swHistory")
+    public String swHistory(){
+    	
+    	return "weixin/swork/historyRecord";
+    }
+    
+    /**
      * 问题上报
      */
     @RequestMapping(params = "swQuest")

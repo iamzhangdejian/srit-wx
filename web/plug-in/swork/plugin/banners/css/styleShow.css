@@ -1,0 +1,28 @@
+.weui_toastShow {
+	    position: fixed;
+	    z-index: 3;
+	    width: 90%;
+	    min-height: 7.6em;
+	    top: 20%;
+	        top: 5%;
+	    left: 5%;
+	    /* left: 50%; */
+	/*     margin-left: 10%; */
+		margin-right:5%;
+		    background: rgba(40, 40, 40, 0.75);
+		    text-align: center;
+		    border-radius: 5px;
+		    color: #FFFFFF;
+		}
+.dustbin {
+	    position: absolute;
+/* 	    right: -2px; */
+/* 	    top: 2px; */
+		right: 2%;
+		top: 1%;
+	    background: url("../images/close.ico") no-repeat;
+	    background-position: -0px -0px;
+	    width: 16px;
+	    height: 16px;
+/* 	    display: none; */
+}

@@ -324,7 +324,7 @@ public class MenuManagerController {
 					cc.setType(entity.getType());
 					firstArr[a] = cc;
 				} else if  ("media_id".equals(entity.getType())){
-					NewsButton cd = new NewsButton();
+					NewsButton cd = new NewsButton(); 
 					cd.setName(entity.getName());
 					cd.setType(entity.getType());
 					cd.setMedia_id(entity.getTemplateId());

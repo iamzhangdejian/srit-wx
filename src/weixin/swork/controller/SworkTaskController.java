@@ -39,7 +39,7 @@ import java.util.HashMap;
  * @author heqing.qi
  */
 @Scope("prototype")
-@Controller
+@Controller        
 @RequestMapping("/sworkTaskController")
 public class SworkTaskController extends BaseController {
 
@@ -124,7 +124,32 @@ public class SworkTaskController extends BaseController {
         return "weixin/swork/taskDetail";
     }
   
-
+    /**
+     * 
+     * 
+     * 历史案件详细信息
+     * @throws JSONException
+     */
+    @RequestMapping(params="hisDetail")
+    public String hisDetail(ModelMap modelMap,HttpServletRequest request) throws JSONException{
+    	String caseId="";
+//    	获取用户信息
+    	user = (User) request.getSession().getAttribute("wx_user_info");
+//       获取案件信息
+    	HashMap<String, String> params = new HashMap<>();
+        params.put(CallServiceKey.CASE_ID.getKey(), request.getParameter("case_id"));
+        System.out.println(request.getParameter("case_id"));
+        String returnStr = "";
+        returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.DETAIL_TASK_LIST, user.getToken(), params);
+        System.out.println(returnStr);
+                 JSONObject a = new JSONObject(returnStr);
+         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
+         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
+         modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述
+         
+         return "weixin/swork/histDetail";
+        		 
+    }
   
 
    

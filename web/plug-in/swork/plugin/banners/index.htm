@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery flexslider焦点图</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+
+</head>
+<body>
+
+
+<div id="demo01" class="flexslider">
+	<ul class="slides">
+		<li><div class="img a"><img src="images/20140113064325b1.png" width="987" height="450" alt="" /></div></li>
+		<li><div class="img b"><img src="images/20140113064357b2.png" width="978" height="450" alt="" /></div></li>
+		<li><div class="img c"><img src="images/20140113064426b3.png" width="987" height="450"alt="" /></div></li>
+		<li><div class="img d"><img src="images/20140113064526b4.png" width="987" height="450" alt="" /></div></li>
+		<li><div class="img e"><img src="images/20140113064325b1.png" width="987" height="450" alt="" /></div></li>
+	</ul>
+</div><!--flexslider end-->
+
+
+<script type="text/javascript" src="js/slider.js"></script> 
+<script type="text/javascript">
+$(function(){
+
+	$('#demo01').flexslider({
+		animation: "slide",
+		direction:"horizontal",
+		easing:"swing"
+	});
+	
+	
+});
+</script>
+
+</body>
+</html>
