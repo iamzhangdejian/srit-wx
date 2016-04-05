@@ -151,6 +151,10 @@
 						<value>sworkQuesrController.do?upLoad</value>
 						<!-- 问题跟踪跳转 -->
 						<value>sworkLoginController.do?swTrack</value>
+						<!-- 历史记录跳转 -->
+						<value>sworkLoginController.do?swHistory</value>
+						<!-- 历史记录详细页面 -->
+						<value>sworkTaskController.do?hisDetail</value>
 						<!-- 问题核查跳转 -->
 						<value>sworkLoginController.do?swTaskcheck</value>
 						<!--taskList  -->
@@ -162,6 +166,8 @@
 						<value>sworkQuesrController.do?uploadSave</value>
 						<!-- 案件详细信息 -->
 						<value>sworkTaskController.do?taskDetail</value>
+						<!--历史列表查询 -->
+						<value>sworkQuesrController.do?historyRecord</value>
 					</list>
 				</property>
 				<!-- 模糊匹配 -->
