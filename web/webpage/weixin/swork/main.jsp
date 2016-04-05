@@ -49,7 +49,7 @@
                     待办任务
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid">
+            <a href="sworkLoginController.do?swHistory" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="template/swork/default/images/history.png" alt="">
                 </div>

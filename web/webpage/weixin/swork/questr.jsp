@@ -8,31 +8,31 @@
     <title>问题上报</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/multilevelmenu.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/component.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/animations.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/bootstrap-treeview.css"/>
-    <script src="plug-in/bootstrap/js/modernizr.custom.js"></script>
-    <link rel="stylesheet" type="text/css" href="plug-in/treeJquery/css/default.css">
-    <link href="plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
-    <link rel="stylesheet" href="plug-in/webuploader/css/webuploader.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/questr.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/multilevelmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/animations.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/bootstrap-treeview.css"/>
+    <script src="plug-in/swork/plugin/bootstrap/js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/treeJquery/css/default.css">
+    <link href="plug-in/swork/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
 
     <!--     预览图片插件css -->
-    <link rel="stylesheet" href="plug-in/banners/css/style.css"/>
-    <link rel="stylesheet" href="plug-in/banners/css/styleShow.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     end！！ -->
     <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
-    <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
-    <script src="plug-in/webuploader/js/webuploader.js"></script>
-    <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plug-in/treeJquery/js/bootstrap-treeview.js"></script>
+    <script src="plug-in/swork/default/js/jquery-1.11.2.min.js"></script>
+    <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
+    <script src="plug-in/swork/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>
     <!--     webupload初始化js -->
-    <script src="plug-in/webuploader/js/webuploaderBegin.js"></script>
+    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
-    <script src="plug-in/sworkWexin/js/jweixin-1.0.0.js"></script>
+<!--     <script src="plug-in/sworkWexin/js/jweixin-1.0.0.js"></script> -->
 
 
     <script type="text/javascript">
@@ -128,7 +128,7 @@
                             <label class="weui_label">位置描述:</label>
                         </div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" id='getLocation' name='spaceDesc'
+                            <input class="weui_input" id='spaceDesc' name='spaceDesc'
                                    placeholder="请选择位置描述"/>
                         </div>
                     </div>
@@ -324,7 +324,7 @@
 
 
 </script>
-<script src="plug-in/banners/js/slider.js"></script>
+<script src="plug-in/swork/plugin/banners/js/slider.js"></script>
 
 </body>
 </html>
