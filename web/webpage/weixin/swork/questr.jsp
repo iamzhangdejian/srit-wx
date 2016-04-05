@@ -8,13 +8,13 @@
     <title>问题上报</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/multilevelmenu.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/component.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/animations.css"/>
-    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/bootstrap/css/bootstrap-treeview.css"/>
-    <script src="plug-in/swork/plugin/bootstrap/js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/multilevelmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/animations.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/bootstrap-treeview.css"/>
+    <script src="plug-in/bootstrap/js/modernizr.custom.js"></script>
     <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/treeJquery/css/default.css">
-    <link href="plug-in/swork/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
@@ -27,7 +27,7 @@
     <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
     <script src="plug-in/swork/default/js/jquery-1.11.2.min.js"></script>
     <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
-    <script src="plug-in/swork/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>
     <!--     webupload初始化js -->
     <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
