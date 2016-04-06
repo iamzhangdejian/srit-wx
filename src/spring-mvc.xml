@@ -152,7 +152,7 @@
 						<!-- 问题跟踪跳转 -->
 						<value>sworkLoginController.do?swTrack</value>
 						<!-- 历史记录跳转 -->
-						<value>sworkLoginController.do?swHistory</value>
+						<value>sworkTaskController.do?swHistory</value>
 						<!-- 历史记录详细页面 -->
 						<value>sworkTaskController.do?hisDetail</value>
 						<!-- 问题核查跳转 -->

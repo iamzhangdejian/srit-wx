@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import weixin.guanjia.account.service.WeixinAccountServiceI;
 import weixin.swork.entity.AttachBase;
 import weixin.swork.entity.QuestFormInfo;
@@ -27,6 +28,7 @@ import weixin.swork.util.JsonHelper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
@@ -101,6 +103,43 @@ public class SworkTaskController extends BaseController {
         return "weixin/swork/taskList";
     }
   
+    
+    /**
+     * 历史信息列表，并跳转页面
+     * 
+     */
+    @RequestMapping(params="swHistory")
+    public String swHistory(ModelMap modelMap, HttpServletRequest request)throws JSONException{
+    	String caseId = "";
+        //取用户信息
+        user = (User) request.getSession().getAttribute("wx_user_info");
+            HashMap<String, String> params = new HashMap<>();
+
+            params.put(CallServiceKey.CASE_ID.getKey(), request.getParameter("case_id"));
+            params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(), request.getParameter("case_biz_type_id"));
+            params.put(CallServiceKey.CASE_BIZ_SN.getKey(), request.getParameter("case_biz_sn"));
+            params.put(CallServiceKey.VERIFY_EXAMINE_DESC.getKey(), request.getParameter("verify_examine_desc"));
+            params.put(CallServiceKey.VERIFY_EXAMINE_REMARKS.getKey(), request.getParameter("verify_examine_remarks"));
+            params.put(CallServiceKey.OP_RESULT_ID.getKey(), request.getParameter("op_result_id"));
+            params.put(CallServiceKey.ATTACH_LIST.getKey(), request.getParameter("pid"));
+//            JSONObject returnStr = new JSONObject(returnStr);
+            String returnStr = "";
+            returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.HIS_TASK_LIST, user.getToken(), params);
+            if(!"".equals(request.getParameter("case_id")) && request.getParameter("case_id")!=null){
+            	if (returnStr == null || "".equals(returnStr)) {       
+                    caseId = "2";
+                    modelMap.addAttribute("failsuccess", caseId);
+                } else {
+                    caseId = "1";
+                    modelMap.addAttribute("failsuccess", caseId);
+                }	
+            }else{
+            	modelMap.addAttribute("failsuccess", "");
+            }
+            
+
+    	return "weixin/swork/historyRecord";
+    }
     /**
      * 案件详细信息
      *
