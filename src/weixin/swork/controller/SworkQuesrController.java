@@ -217,6 +217,7 @@ public class SworkQuesrController extends BaseController {
         File files = new File(filePath+"\\" + fn);
         Map<Object, Object> map=new HashMap<>();
         map.put("files", files);
+        System.out.println("files:===>"+files);
         BufferedOutputStream fileOut = new BufferedOutputStream(new FileOutputStream(files));
         while (true) {
             // 读取**
