@@ -58,7 +58,7 @@
 			                //将后台返回的img地址添加的预览图片模块
 			                var s,ss;
 			                s=response.files;
-			                ss=s.substr(36);
+			                ss=s.substr(s.indexOf("attach"));
 			                $('.slides').append('<li ><div><img class="wuli" src="'+ss+'" width="100%" height=" 390px;"   alt="" /></div></li>');
 			                //存储预览图片的地址
 //			                if(divSlideurl==""){

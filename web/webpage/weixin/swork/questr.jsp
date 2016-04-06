@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="weui_cell weui_cell_select weui_select_after">
-                        <div class="weui_cell_hd">问题程度:</div>
+                        <label class="weui_cell_hd">问题程度:</label>
                         <div class="weui_cell_bd weui_cell_primary">
                             <select class="weui_select" name="questLevel" id="questLevel">
                                 <option value="1">一般问题</option>
