@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     end！！ -->
     <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
-    <script src="plug-in/swork/default/js/jquery-1.11.2.min.js"></script>
+    <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
     <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
     <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>

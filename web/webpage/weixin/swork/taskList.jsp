@@ -6,15 +6,16 @@
 	<title>待办列表</title> 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
 	 <meta charset="UTF-8"/>
-	<link rel="stylesheet" href="plug-in/sworktaskList/css/jquery.mobile.min.css" />
-	<link rel="stylesheet" href="plug-in/sworktaskList/css/theme/theme.min.css" />
-	<link rel="stylesheet" href="plug-in/sworktaskList/css/styles.css" />
-	<link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
-	<script src="plug-in/sworktaskList/js/jquery.min.js"></script>
-	<script src="plug-in/sworktaskList/js/mobileinit.js"></script>
-	<script src="plug-in/sworktaskList/js/jquery.mobile.min.js"></script>
-	<script src="plug-in/sworktaskList/js/fastclick.js"></script>
+	<link rel="stylesheet" href="plug-in/swork/tasklist/css/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="plug-in/swork/tasklist/css/theme/theme.min.css" />
+	<link rel="stylesheet" href="plug-in/swork/tasklist/css/styles.css" />
+	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+	<script src="plug-in/swork/tasklist/js/jquery.min.js"></script>
+	<script src="plug-in/swork/tasklist/js/mobileinit.js"></script>
+	<script src="plug-in/swork/tasklist/js/jquery.mobile.min.js"></script>
+	<script src="plug-in/swork/tasklist/js/fastclick.js"></script>
+	
 	
 	<script>
 	function openNew(case_biz_sn,case_id,case_code,send_op_info,case_pos_desc,case_biz_type_name,case_biz_type_id){
@@ -66,11 +67,41 @@ border-top:1px solid #cccccc!important;
 	</style>
 </head> 
 <body ontouchstart >
+<header class="header">
+<!-- 	<a href="http://sc.admin5.com/" class="logo"><img src="images/logo.png" alt="嘉华旅游"></a> -->
+<!-- 	<a href="http://sc.admin5.com/" class="search"><span>目的地搜索</span></a> -->
+<!-- 	<a href="http://sc.admin5.com/" class="user-icon"><span>用户中心</span></a> -->
+	<div id="dl-menu" class="dl-menuwrapper">
+		<button id="dl-menu-button">Open Menu</button>
+		<ul class="dl-menu">
+			<li><a href="http://sc.admin5.com/">首页</a></li>
+			<li><a href="http://sc.admin5.com/">台湾游</a></li>
+			<li><a href="http://sc.admin5.com/">出境游</a></li>
+			<li><a href="http://sc.admin5.com/">国内游</a></li>
+			<li><a href="http://sc.admin5.com/">周边游</a></li>
+			<li>
+				<a href="Line">自由行</a>
+				<ul class="dl-submenu">
+					<li class="dl-back"><a href="#">返回上一级</a></li>
+					<li><a href="http://sc.admin5.com/">线路</a></li>
+					<li><a href="http://sc.admin5.com/">签证</a></li>
+					<li><a href="http://sc.admin5.com/">门票</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>
+
+<script type="text/javascript">
+$(function(){
+	$( '#dl-menu' ).dlmenu();
+});
+</script>
 	<!-- page -->
 	<div data-role="page" id="fpmxListPage" data-iscroll="enable">
-		<link rel="stylesheet" href="plug-in/sworktaskList/css/pull.css" />
-		<script type="text/javascript" charset="utf-8" src="plug-in/sworktaskList/js/iscroll.js"></script>
-		<script type="text/javascript" charset="utf-8" src="plug-in/sworktaskList/js/initScroll.js"></script>
+		<link rel="stylesheet" href="plug-in/swork/tasklist/css/pull.css" />
+		<script type="text/javascript" charset="utf-8" src="plug-in/swork/tasklist/js/iscroll.js"></script>
+		<script type="text/javascript" charset="utf-8" src="plug-in/swork/tasklist/js/initScroll.js"></script>
 		<script type="text/javascript">
 		$(document).bind("pageinit", function() {
 			isInit=0;
@@ -221,7 +252,7 @@ border-top:1px solid #cccccc!important;
 <div id="fail" style="display: none;">
     <div class="weui_mask_transparent"></div>
     <div class="weui_toast">
-       <img  style=" padding: 12px;" src="plug-in/sworktaskList/images/fault.png"></img>
+       <img  style=" padding: 12px;" src="plug-in/swork/tasklist/images/fault.png"></img>
         <p class="weui_toast_content">反馈失败！</p>
     </div>
 </div>

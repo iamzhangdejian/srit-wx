@@ -8,16 +8,16 @@
     <title>问题上报</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
-	<link rel="stylesheet" href="plug-in/webuploader/css/webuploader.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/questr.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+	<link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
     <!--     预览图片插件css -->
-    <link rel="stylesheet" href="plug-in/banners/css/style.css"/>
-    <link rel="stylesheet" href="plug-in/banners/css/styleShow.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     webupload初始化js -->
-    <script src="../../../plug-in/webuploader/js/webuploaderBegin.js"></script>    
+    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>    
 </head>
 
     <script type="text/javascript">
@@ -141,7 +141,7 @@
 </div>
 <script src="plug-in/bootstrap/js/jquery.dlmenu.js"></script>
 <script src="plug-in/bootstrap/js/pagetransitions.js"></script>
-<script src="plug-in/banners/js/slider.js"></script>
+<script src="plug-in/swork/plugin/banners/js/slider.js"></script>
 <script type="text/javascript">
 var url="plug-in/accordion/images/xiami.png";
 $('.slides').append('<li ><div><img class="wuli" src="'+url+'" width="100%" height=" 390px;"   alt="" /></div></li>');

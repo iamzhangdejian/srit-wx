@@ -18,9 +18,9 @@
     height: 60px;
 }
 </style>
-	<link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/custom.css"/>
+	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/custom.css"/>
 <!--     <script type="text/javascript" src="../../static/jquery/1.8.0/jquery.min.js"></script> -->
 </head>
 <body ontouchstart>
@@ -110,7 +110,7 @@
 </div>
 </script>
 
-	<script src="plug-in/sworkWexin/js/zepto.min.js"></script>
-    <script src="plug-in/sworkWexin/js/example.js"></script>
+	<script src="plug-in/swork/default/js/zepto.min.js"></script>
+    <script src="plug-in/swork/default/js/example.js"></script>
 </body>
 </html>

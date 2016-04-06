@@ -16,14 +16,14 @@
     <script src="plug-in/bootstrap/js/modernizr.custom.js"></script>
     <link rel="stylesheet" type="text/css" href="plug-in/treeJquery/css/default.css">
     <link href="plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
-    <link rel="stylesheet" href="plug-in/webuploader/css/webuploader.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/questr.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
 
     <!--     预览图片插件css -->
-    <link rel="stylesheet" href="plug-in/banners/css/style.css"/>
-    <link rel="stylesheet" href="plug-in/banners/css/styleShow.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     end！！ -->
     <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
@@ -31,7 +31,7 @@
     <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="plug-in/treeJquery/js/bootstrap-treeview.js"></script>
     <!--     webupload初始化js -->
-    <script src="plug-in/webuploader/js/webuploaderBegin.js"></script>
+    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
     <script src="plug-in/sworkWexin/js/jweixin-1.0.0.js"></script>
 
@@ -204,9 +204,9 @@
 		<input class="weui_input" id="case_id" name="case_id"
 			value="${case_id}" readOnly="true" style="display: none" />
 	</form>
-	<script src="plug-in/sworkWexin/js/zepto.min.js"></script>
-	<script src="plug-in/sworkWexin/js/example.js"></script>
-	<script src="plug-in/banners/js/slider.js"></script>
+	<script src="plug-in/swork/default/js/zepto.min.js"></script>
+	<script src="plug-in/swork/default/js/example.js"></script>
+	<script src="plug-in/swork/plugin/banners/js/slider.js"></script>
 	<script type="text/javascript">
 		$('#detail').click(function() {
 			$("#parentCheckform").submit();
