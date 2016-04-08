@@ -245,10 +245,10 @@ function desplay(json){
 			  CASE_BIZ_SN=json[i].CASE_BIZ_SN;
 		  }
 		  htmls+='<li><a style="display:block;" href="javascript:"  onclick="showHis('+CASE_ID+')"<img src="">'
-		  htmls+='<p>案卷编号：<span class="text-no" style="font-size:15px;font-weight:normal;">'+CASE_CODE+'</span></p>';
-		  htmls+='<p>案件类别：<span class="text-no" style="font-size:15px;font-weight:normal;">'+CASE_TYPE_NAME+'</span></p>';
-		  htmls+='<p>位置描述：<span class="text-no" style="font-size:15px;font-weight:normal;">'+CASE_POS_DESC+'</span></p>';
-		  htmls+='<p>派发时间：<span class="text-no" style="font-size:15px;font-weight:normal;">'+SEND_TIME+'</span></p>';
+		  htmls+='<p>案卷编号：<span class="text-no" >'+CASE_CODE+'</span></p>';
+		  htmls+='<p>案件类别：<span class="text-no" >'+CASE_TYPE_NAME+'</span></p>';
+		  htmls+='<p>位置描述：<span class="text-no" >'+CASE_POS_DESC+'</span></p>';
+		  htmls+='<p>派发时间：<span class="text-no" >'+SEND_TIME+'</span></p>';
 		  htmls+='</a></li>' 
 	  };    
 //	 datas = '<li> <a href="fpmx.html"> <img src="images/ic_wast.png" alt=""> <p>发票代码：<span class="text-no">0200000000</span></p> <p>发票号码：<span class="text-no">00001234</span></p> </a>  </li>'

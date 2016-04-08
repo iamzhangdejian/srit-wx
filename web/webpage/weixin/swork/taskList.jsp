@@ -67,36 +67,7 @@ border-top:1px solid #cccccc!important;
 	</style>
 </head> 
 <body ontouchstart >
-<header class="header">
-<!-- 	<a href="http://sc.admin5.com/" class="logo"><img src="images/logo.png" alt="嘉华旅游"></a> -->
-<!-- 	<a href="http://sc.admin5.com/" class="search"><span>目的地搜索</span></a> -->
-<!-- 	<a href="http://sc.admin5.com/" class="user-icon"><span>用户中心</span></a> -->
-	<div id="dl-menu" class="dl-menuwrapper">
-		<button id="dl-menu-button">Open Menu</button>
-		<ul class="dl-menu">
-			<li><a href="http://sc.admin5.com/">首页</a></li>
-			<li><a href="http://sc.admin5.com/">台湾游</a></li>
-			<li><a href="http://sc.admin5.com/">出境游</a></li>
-			<li><a href="http://sc.admin5.com/">国内游</a></li>
-			<li><a href="http://sc.admin5.com/">周边游</a></li>
-			<li>
-				<a href="Line">自由行</a>
-				<ul class="dl-submenu">
-					<li class="dl-back"><a href="#">返回上一级</a></li>
-					<li><a href="http://sc.admin5.com/">线路</a></li>
-					<li><a href="http://sc.admin5.com/">签证</a></li>
-					<li><a href="http://sc.admin5.com/">门票</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</header>
 
-<script type="text/javascript">
-$(function(){
-	$( '#dl-menu' ).dlmenu();
-});
-</script>
 	<!-- page -->
 	<div data-role="page" id="fpmxListPage" data-iscroll="enable">
 		<link rel="stylesheet" href="plug-in/swork/tasklist/css/pull.css" />
