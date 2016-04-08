@@ -1,0 +1,93 @@
+/* CSS Document */
+html,body{
+	font-family:"微软雅黑";
+	background: #e2e2e2;
+	background: -moz-linear-gradient(45deg,  #e2e2e2 0%, #ffffff 100%); 
+	background: -webkit-linear-gradient(45deg,  #e2e2e2 0%,#ffffff 100%); 
+	background: linear-gradient(45deg,  #e2e2e2 0%,#ffffff 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#ffffff',GradientType=1 );
+}
+.page, body{
+	background:none !important;
+}
+
+/* index */
+.hd{
+	background:url(../images/top.jpg) center bottom no-repeat;
+	padding:2em 0;
+}
+.page_desc{
+	color:#fff;
+}
+/* .weui_grid:active { */
+/*   background:none; */
+/*   border-bottom:1px solid #5885cb; */
+/*   margin:0; */
+/*   padding-bottom:19px; */
+/* } */
+
+/* report*/
+
+.weui_cells:before{
+	border:none !important;
+}
+.weui_cell:before{
+	border:none !important;
+}
+
+.weui_cell_primary{
+	border-bottom:1px solid #b5b5b5;
+	padding:10px 0;
+	font-size:14px;
+	color:#b5b5b5;
+}
+.weui_cells_access .weui_cell:active .weui_cell_primary{
+	border-color:#5885cb;
+}
+.weui_label{
+	font-size:12px;
+	font-weight:normal;
+}
+.weui_cells_access .weui_cell:active .weui_cell_hd .weui_label,.weui_cells_access .weui_cell_select:active .weui_cell_hd{
+	color:#5885cb;
+}
+.weui_cells_access .weui_cell_select .weui_cell_primary{
+	margin-left:10px;
+	margin-right:15px;
+}
+.button{
+	text-shadow:none;
+}
+.weui_cell_select .weui_select{
+	padding-left:0;
+}
+.weui_cells_form .weui_cell_hd{
+	font-size:14px;
+}
+.weui_cells_access .weui_cell:not(.no_access){
+	background:none !important;
+}
+.weui_cells_access .weui_cell:not(.no_access):active {
+	background:none !important;
+}
+
+/* .weui_btn_primary{ */
+/* 	background-color:#5885cb; */
+/* } */
+/* .weui_btn_primary:not(.weui_btn_disabled):active { */
+/*   color: rgba(255, 255, 255, 0.4); */
+/*   background-color: #5179b8; */
+/* } */
+.webuploader-pick:active {
+    border-color: #5885cb;
+}
+.webuploader-pick:active:before,
+.webuploader-pick:active:after {
+    background-color: #5885cb;
+}
+.webuploader-pick-hover {
+    border-color: #5885cb;
+}
+.thumbnail {
+	 border: 1px solid #5885cb;
+}
