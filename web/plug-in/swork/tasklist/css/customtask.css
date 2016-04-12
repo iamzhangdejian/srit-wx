@@ -1,0 +1,71 @@
+/* CSS Document */
+
+
+/* list */
+
+/*去掉本页面里的border样式*/
+
+/*本页面里的padding改为4px*/
+
+/* theme.min */
+.ui-btn-up-a{
+	border-top:0 !important;
+	border-left:0 !important;
+	border-right:0 !important;
+	border-bottom:2px solid #b5b5b5;
+	background:#fff;
+	background-image:none !important;
+}
+.ui-btn-up-a:hover,.ui-btn-up-a:active{
+	border-color:#47cb2c !important;
+}
+li.ui-btn-up-a:nth-child(2n){
+	background:#fbfbfb;
+}
+.ui-icon, .ui-icon-searchfield:after{
+	
+	background:url(../images/arrow.png) no-repeat;
+}
+
+/* styles.css */
+.ui-listview p{
+	font-size:12px;
+}
+
+/* jquery.mobile */
+.ui-body-c, .ui-overlay-c{
+	background:#fff;
+	background-image:none !important;
+}
+.ui-li-desc{
+	font-weight:normal;
+	font-size:"微软雅黑";
+	color:#999;
+}
+.ui-listview>.ui-li.ui-first-child, .ui-listview .ui-btn.ui-first-child>.ui-li>.ui-btn-text>.ui-link-inherit{
+	border-top:0 !important;
+}
+.ui-btn-icon-left>.ui-btn-inner>.ui-icon, .ui-btn-icon-right>.ui-btn-inner>.ui-icon{
+	width:7px;
+}
+/*去掉标签字体大小*/
+.list-fpmx .text-no{
+	color:#656565;
+}
+/*pull.css*/
+
+#pullDown, #pullUp{
+	border:none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
