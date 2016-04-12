@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
+       <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
 
     <!--     预览图片插件css -->
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
@@ -33,15 +34,24 @@
     <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
 <!--     <script src="plug-in/sworkWexin/js/jweixin-1.0.0.js"></script> -->
-
+<script>
+function myFunction(lab,div){
+			document.getElementById(lab).style.color="#47cb2c"; 
+			document.getElementById(div).style.borderColor = "#47cb2c"; 
+			
+		}
+function Function(lab,div){
+	document.getElementById(lab).style.color="#333"; 
+	document.getElementById(div).style.borderColor = "#b5b5b5"; 
+	}
+		</script>
 
     <script type="text/javascript">
 
         function showPicture() {
+            var imglist = document.getElementById("fileList").getElementsByTagName('IMG');
         	var divSlideurls=new Array();
         		divSlideurls=divSlideurl;
-            console.log("divSlideurls:"+divSlideurls.length);
-            console.log("divSlideurls:"+divSlideurls);
             $(".weui_toastShow").empty();
             $(".weui_toastShow").append('<div class="dustbin" onclick="hiddenShow()"></div>');
             $(".weui_toastShow").append('<div id="showPictures" class="flexslider" style="margin-top: 25px;"></div>');
@@ -59,8 +69,8 @@
                 direction: "horizontal",
                 easing: "swing"
             });
-
-
+            
+            
             var $toastFormP = $('#toastFormP');
             if ($toastFormP.css('display') != 'none') {
                 return;
@@ -75,8 +85,8 @@
             $('#toastFormP').attr("style", "display: none;width: 390px;");
            
         }
-
-
+        
+        
     </script>
 
 </head>
@@ -87,7 +97,7 @@
         <form action="sworkQuesrController.do?questForm" method="post" name="parentCheck" id="parentCheck">
             <div class="page slideIn cell button">
                 <!--         <div class="weui_cells_title">表单</div> -->
-                <div class="weui_cells weui_cells_form weui_cells_access">
+                <div class="weui_cells weui_cells_form weui_cells_access" style="margin-top:0.176471em">
                     <div class="weui_cell ">
 
                         <div class="weui_cell_hd">
@@ -115,27 +125,27 @@
                         <div class="weui_cell_ft"></div>
 
                     </div>
-                    <div class="weui_cell">
+                    <div class="weui_cell" id="quest">
                         <div class="weui_cell_hd">
                             <label class="weui_label">问题描述:</label>
                         </div>
-                        <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" id="questDesc" name="questDesc" placeholder="请输入问题描述"/>
+                        <div class="weui_cell_bd weui_cell_primary" id="qu">
+                            <input onFocus="myFunction('quest','qu');" onBlur="Function('quest','qu');"  class="weui_input" id="questDesc" name="questDesc" placeholder="请输入问题描述"/>
                         </div>
                     </div>
-                    <div class="weui_cell ">
+                    <div class="weui_cell " id="space">
                         <div class="weui_cell_hd">
                             <label class="weui_label">位置描述:</label>
                         </div>
-                        <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" id='spaceDesc' name='spaceDesc'
+                        <div class="weui_cell_bd weui_cell_primary" id="sp">
+                            <input  onFocus="myFunction('space','sp');" onBlur="Function('space','sp');" class="weui_input" id='spaceDesc' name='spaceDesc'
                                    placeholder="请选择位置描述"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_cell_select weui_select_after">
                         <label class="weui_cell_hd">问题程度:</label>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <select class="weui_select" name="questLevel" id="questLevel">
+                            <select class="weui_select" name="questLevel" id="questLevel" style="height:27px">
                                 <option value="1">一般问题</option>
                                 <option value="2">紧急问题</option>
                                 <option value="3">重大隐患</option>
@@ -173,8 +183,8 @@
 
         <div class="page slideIn cell button">
             <div class="weui_cells weui_cells_form weui_cells_access" style="overflow:auto">
-                <div class="weui_btn_area" style="">
-                    <input class="weui_btn weui_btn_primary" onClick='problem()' type=button value="确 定" name=''
+                <div class="weui_btn_area" style="display:none;"> 
+                    <input class="weui_btn weui_btn_primary"  type=button value="确 定" name=''
                            id="problembut"/>
                 </div>
                 <div id="treeview12"></div>
@@ -228,6 +238,7 @@
 <script src="plug-in/bootstrap/js/pagetransitions.js"></script>
 <script type="text/javascript">
     $(function () {
+    	
         if ($("#caseId").val() == 1) {
             var $toastForm = $('#toastForm');
             if ($toastForm.css('display') != 'none') {
@@ -325,7 +336,11 @@
 
 </script>
 <script src="plug-in/swork/plugin/banners/js/slider.js"></script>
+<script type="text/javascript">
+function tanchu() {
 
+};
+</script>
 </body>
 </html>
 

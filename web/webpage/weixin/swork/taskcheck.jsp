@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
+    <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
+    
 
     <!--     预览图片插件css -->
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
@@ -90,7 +92,7 @@
 <body ontouchstart>
 	<form action="sworkTaskController.do?taskForm" method="post"
 		name="parentCheck" id="parentCheck">
-		<div class="page slideIn cell">
+		<div class="page slideIn cell button">
 			<div class="hd">
 				<h4 class="page_title" style="font-size: 20px; margin: -14px 15%">${case_biz_type_name}</h4>
 			</div>
@@ -101,7 +103,8 @@
 							<label class="weui_label">案卷编号:</label>
 						</div>
 						<div class="weui_cell_bd weui_cell_primary">
-							${case_code} <input class="weui_input" id="case_id"
+						<input class="weui_input" value="${case_code}" readOnly="true" />
+							 <input class="weui_input" id="case_id"
 								name="case_id" value="${case_id}" readOnly="true"
 								style="display: none" /> <input class="weui_input"
 								id="case_biz_type_id" name="case_biz_type_id"
@@ -132,11 +135,12 @@
 				</div>
 				<div class="weui_cells_title"> </div>
 				<div class="weui_cells ">
-					<div class="weui_cell weui_cell_select weui_select_after">
-						<div class="weui_cell_hd"><label class="weui_label">反馈结果:</label></div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd">
+						<label class="weui_label">反馈结果:</label>
+						</div>
 						<div class="weui_cell_bd weui_cell_primary">
-							<select class="weui_select" id="op_result_id" name="op_result_id"
-								style="padding-left: 9px">
+							<select class="weui_select" id="op_result_id" name="op_result_id" style="height:27px;padding-left:0px">
 								<option value="1">已处理,核查属实</option>
 								<option value="2">未处理,核查不属实</option>
 							</select>

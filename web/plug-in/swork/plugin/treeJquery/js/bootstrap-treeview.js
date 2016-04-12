@@ -125,6 +125,7 @@
 			this.$element.on('click', $.proxy(this._clickHandler, this));
 
 			if (typeof (this.options.onNodeSelected) === 'function') {
+				
 				this.$element.on('nodeSelected', this.options.onNodeSelected);
 			}
 		},
@@ -262,6 +263,9 @@
 
 		// Starting from the root node, and recursing down the 
 		// structure we build the tree one node at a time
+		
+		
+		
 		_buildTree: function(nodes, level) {
 
 			if (!nodes) { return; }
@@ -272,8 +276,64 @@
 				node.nodeId = self.nodes.length;
 				self.nodes.push(node);
 				var zifu;
+				 if ($("li").hasClass("node-selected")) {
+			            var id = document.getElementById('problembut').name;
+			            var liId = "";
+			            liId = $("li.node-selected")[0].id.toString();
+			            document.getElementById(id.substring(0, id.length - 1)).value = liId;
+			            if ($("li.node-selected")[0].value == "1") {
+			                if (id == "questType1") {
+			                    if (liId.length > 2) {
+			                        var textname = $("li.node-selected")[0].innerText;
+			                        for (var i = 2; i < liId.length; i++) {
+			                            var suliId = liId.substring(0, liId.length - i);
+			                            textname = document.getElementById(suliId).innerText + "/" + textname;
+			                            i++;
+			                        }
+			                        document.getElementById(id).value = textname;
+//			                        var animcursor =2;
+//			        				nextPage( animcursor,0 );
+			                    	$("#problembut").click();
+
+			                    } else {
+			                        document.getElementById(id).value = $("li.node-selected")[0].innerText;
+			                        document.getElementById(id.substring(0, id.length - 1)).value = liId;
+			                       
+			                    }
+			                } else {
+			                    if (liId.length > 3) {
+			                        var textname = $("li.node-selected")[0].innerText;
+			                        for (var i = 3; i < liId.length; i++) {
+			                            var suliId = liId.substring(0, liId.length - i);
+			                            textname = document.getElementById(suliId).innerText + "/" + textname;
+			                            i++;
+			                            i++;
+			                        }
+			                        document.getElementById(id).value = textname;
+			                    	$("#problembut").click();
+
+			                    } else {
+			                        document.getElementById(id).value = $("li.node-selected")[0].innerText;
+			                        document.getElementById(id.substring(0, id.length - 1)).value = liId;
+			                        
+			                    }
+			                }
+
+			            } 
+//			            else {
+//			                var $toast = $('#toast');
+//			                if ($toast.css('display') != 'none') {
+//			                    return;
+//			                }
+//			                $toast.show();
+//			                setTimeout(function () {
+//			                    $toast.hide();
+//			                }, 2000);
+//			            }
+			        }
 				if (!node.nodes && !node._nodes) {
 					zifu=1;
+					
 				}else{
 					zifu=0;
 				}

@@ -42,6 +42,7 @@ var PageTransitions = (function() {
 		} );
 
 		$iterate.on( 'click', function() {
+			 document.getElementById('treeview12').innerHTML = '';
 			var data1;
 	        $.ajax({
 	            type: "POST",
@@ -108,6 +109,7 @@ var PageTransitions = (function() {
 			//++animcursor;
 		} );
 		$eventRegion.on( 'click', function() {
+			   document.getElementById('treeview12').innerHTML = '';
 			if( isAnimating ) {
 				return false;
 			}

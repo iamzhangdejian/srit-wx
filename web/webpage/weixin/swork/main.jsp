@@ -35,7 +35,7 @@
         <div class="weui_grids">
             <a href="sworkLoginController.do?swQuest" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/report.png" alt="">
+                    <img src="plug-in/swork/default/images/report.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     问题报送
@@ -43,7 +43,7 @@
             </a>
             <a href="sworkLoginController.do?swTrack" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/task.png" alt="">
+                    <img src="plug-in/swork/default/images/task.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     待办任务
@@ -51,7 +51,7 @@
             </a>
             <a href="sworkTaskController.do?swHistory" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/history.png" alt="">
+                    <img src="plug-in/swork/default/images/history.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     历史纪录
@@ -59,7 +59,7 @@
             </a>
             <a href="http://www.96156.com.cn/convenience/" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/remind.png" alt="">
+                    <img src="plug-in/swork/default/images/remind.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     城市动态
@@ -67,7 +67,7 @@
             </a>
             <a href="http://map.baidu.com" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/city.png" alt="">
+                    <img src="plug-in/swork/default/images/city.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     城市周边
@@ -75,7 +75,7 @@
             </a>
             <a href="sworkController.do?goPage&page=changerule" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/message.png" alt="">
+                    <img src="plug-in/swork/default/images/message.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     信息公开
@@ -83,7 +83,7 @@
             </a>
             <a href="sworkController.do?goPage&page=mpoint" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/heart.png" alt="">
+                    <img src="plug-in/swork/default/images/heart.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     便民服务
@@ -91,7 +91,7 @@
             </a>
             <a href="sworkController.do?goPage&page=person" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/code.png" alt="">
+                    <img src="plug-in/swork/default/images/code.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                    二维码
@@ -99,7 +99,7 @@
             </a>
             <a href="javascript:;" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
-                    <img src="template/swork/default/images/user.png" alt="">
+                    <img src="plug-in/swork/default/images/user.png" alt="">
                 </div>
                 <p class="weui_grid_label">
                     我的信息

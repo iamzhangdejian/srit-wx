@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/styles.css" />
 	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/tasklist/css/customtask.css" />
 	<script src="plug-in/swork/tasklist/js/jquery.min.js"></script>
 	<script src="plug-in/swork/tasklist/js/mobileinit.js"></script>
 	<script src="plug-in/swork/tasklist/js/jquery.mobile.min.js"></script>

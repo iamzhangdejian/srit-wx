@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     webupload初始化js -->
-    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>    
+    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>  
+    <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>  
 </head>
 
     <script type="text/javascript">
