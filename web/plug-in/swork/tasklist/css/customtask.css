@@ -3,19 +3,28 @@
 
 /* list */
 
-/*鍘绘帀鏈〉闈㈤噷鐨刡order鏍峰紡*/
+/*去掉本页面里的border样式*/
 
-/*鏈〉闈㈤噷鐨刾adding鏀逛负4px*/
+/*本页面里的padding改为4px*/
 
 /* theme.min */
+/**/
+
+/*去掉页面里的margin值 .ui-li.ui-btn, .ui-li.ui-field-contain, .ui-li-divider, .ui-li-static*/
+
+
 .ui-btn-up-a{
 	border-top:0 !important;
 	border-left:0 !important;
 	border-right:0 !important;
-	border-bottom:2px solid #b5b5b5;
+	/*border-bottom:2px solid #b5b5b5;*/
 	background:#fff;
 	background-image:none !important;
 }
+li.ui-btn-up-a>div{
+	border:none;
+}
+/**/
 .ui-btn-up-a:hover,.ui-btn-up-a:active{
 	border-color:#47cb2c !important;
 }
@@ -24,12 +33,12 @@ li.ui-btn-up-a:nth-child(2n){
 }
 .ui-icon, .ui-icon-searchfield:after{
 	
-	background:url(../images/arrow.png) no-repeat;
+/*	background:url(images/arrow.png) no-repeat; */
 }
 
 /* styles.css */
 .ui-listview p{
-	font-size:12px;
+	font-size:15px;
 }
 
 /* jquery.mobile */
@@ -39,20 +48,29 @@ li.ui-btn-up-a:nth-child(2n){
 }
 .ui-li-desc{
 	font-weight:normal;
-	font-size:"寰蒋闆呴粦";
-	color:#999;
+	font-size:"微软雅黑";
+	color:#171616;
 }
 .ui-listview>.ui-li.ui-first-child, .ui-listview .ui-btn.ui-first-child>.ui-li>.ui-btn-text>.ui-link-inherit{
 	border-top:0 !important;
 }
 .ui-btn-icon-left>.ui-btn-inner>.ui-icon, .ui-btn-icon-right>.ui-btn-inner>.ui-icon{
-	width:7px;
+/*	width:7px; */
 }
-/*鍘绘帀鏍囩瀛椾綋澶у皬*/
+/*去掉标签字体大小*/
 .list-fpmx .text-no{
-	color:#656565;
+	color:#191B1B;
 }
 /*pull.css*/
+
+
+/**/
+#pullUp{
+	width:142px;
+	padding:10px 0 !important;
+	margin:0 auto;
+}
+/**/
 
 #pullDown, #pullUp{
 	border:none !important;

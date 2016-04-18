@@ -58,8 +58,9 @@ public enum CallServiceKey {
     //核查核实附件ID
     ATTACH_LIST("attach_list"),
     //案件CASE_ID
-    CASE_ID("case_id");
-
+    CASE_ID("case_id"),
+    //返回值
+    RESULT("result");
     private String key;
 
     private CallServiceKey(String key) {

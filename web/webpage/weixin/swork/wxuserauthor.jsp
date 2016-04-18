@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>用户认证</title>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
 </head>
 <body ontouchstart>
 <form action="sworkLoginController.do?swPhone" method="post">
@@ -35,9 +35,12 @@
         <div class="weui_btn_area">
             <input class="weui_btn weui_btn_primary" href="javascript:" type="submit" id="showToolPhone"></input>
         </div>
+        <div class="hd">
+        <a href="http://192.168.1.212:8080/srit-wxplat/sworkLoginController.do?swLoginUser"><p class="page_desc">社管通用户</p></a>
+        </div>
     </div>
 </form>
-<script src="plug-in/sworkWexin/js/zepto.min.js"></script>
-<script src="plug-in/sworkWexin/js/example.js"></script>
+<script src="plug-in/swork/default/js/zepto.min.js"></script>
+<script src="plug-in/swork/default/js/example.js"></script>
 </body>
 </html>

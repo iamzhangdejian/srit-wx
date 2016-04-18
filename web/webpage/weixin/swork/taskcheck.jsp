@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,user-scalable=0">
-<title>任务反馈</title>
+<title>${case_biz_type_name}</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/> 
     <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/multilevelmenu.css"/>
@@ -87,15 +87,19 @@
 .weui_label{
 	font-weight:bold;
 }
+
+
+#case_code{ 
+padding-right:20px; 
+background:url("plug-in/swork/default/images/xinx.png") no-repeat scroll right center transparent; 
+} 
+
 </style>
 </head>
 <body ontouchstart>
 	<form action="sworkTaskController.do?taskForm" method="post"
 		name="parentCheck" id="parentCheck">
 		<div class="page slideIn cell button">
-			<div class="hd">
-				<h4 class="page_title" style="font-size: 20px; margin: -14px 15%">${case_biz_type_name}</h4>
-			</div>
 			<div class="bd">
 				<div class="weui_cells ">
 					<div class="weui_cell " id="detail">
@@ -103,8 +107,8 @@
 							<label class="weui_label">案卷编号:</label>
 						</div>
 						<div class="weui_cell_bd weui_cell_primary">
-						<input class="weui_input" value="${case_code}" readOnly="true" />
-							 <input class="weui_input" id="case_id"
+						<input class="weui_input " value="${case_code}"  id="case_code" readOnly="true" />
+							 <input class="weui_input weui_icon_info_circle" id="case_id"
 								name="case_id" value="${case_id}" readOnly="true"
 								style="display: none" /> <input class="weui_input"
 								id="case_biz_type_id" name="case_biz_type_id"
@@ -112,8 +116,9 @@
 								style="display: none" /> <input class="weui_input"
 								id="case_biz_sn" name="case_biz_sn" value="${case_biz_sn}"
 								readOnly="true" style="display: none" />
+								
 						</div>
-						<i class="weui_icon_info_circle"></i>
+<!-- 						<i class="weui_icon_info_circle"></i> -->
 					</div>
 					<div class="weui_cell ">
 						<div class="weui_cell_hd">

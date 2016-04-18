@@ -41,7 +41,7 @@
                     问题报送
                 </p>
             </a>
-            <a href="sworkLoginController.do?swTrack" class="weui_grid js_grid">
+            <a href="sworkTaskController.do?swTrack" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="plug-in/swork/default/images/task.png" alt="">
                 </div>
@@ -89,7 +89,7 @@
                     便民服务
                 </p>
             </a>
-            <a href="sworkController.do?goPage&page=person" class="weui_grid js_grid">
+            <a href="javascript:;" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="plug-in/swork/default/images/code.png" alt="">
                 </div>
@@ -97,7 +97,7 @@
                    二维码
                 </p>
             </a>
-            <a href="javascript:;" class="weui_grid js_grid">
+            <a href="sworkUserController.do?showuser" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="plug-in/swork/default/images/user.png" alt="">
                 </div>

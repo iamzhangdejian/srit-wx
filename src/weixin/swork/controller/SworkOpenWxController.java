@@ -79,7 +79,6 @@ public class SworkOpenWxController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -90,44 +89,40 @@ public class SworkOpenWxController extends BaseController {
      */
     @RequestMapping(params = "openWws")
     public String openWws(Model model, HttpServletRequest request) {
+        //页面跳转指向
         String page = request.getParameter("page");
+        //微信平台提供code
         String code = request.getParameter("code");
-        user = (User) request.getSession().getAttribute("wx_user_info");
+        if (code == null || "".equals(code)) {
+            return "common/error";
+        }
+        System.out.println("提供code===================>>" + code);
+        System.out.println("跳转page===================>>" + page);
         openId = (String) request.getSession().getAttribute("openid");
-        if (user != null && !"".equals(user)) {
-            System.out.println("User=======================>>" + user.toString());
-            String token = user.getToken();
-            if (token == null || "".equals(token)) {
-                user = SworkCommonServiceImpl.getInstance().sworkUserOauthService(
-                        openId);
-            }
-            isHasBound = true;
-            openId = user.getOpenID();
-        } else {
-            isHasBound = false;
+        if (openId == null || "".equals(openId)) {
+            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
             if (openId == null || "".equals(openId)) {
-                openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
+                return "common/error";
+            } else {
                 request.getSession().setAttribute("openid", openId);
             }
         }
-        System.out.println("isHasBound=================>>" + String.valueOf(isHasBound));
-        System.out.println("code=======================>>" + code);
-        System.out.println("openId=====================>>" + openId);
-        System.out.println("page=======================>>" + page);
-        if (isHasBound) {
-            return goPage(model, page);
+
+        //根据openId进行服务器的用户验证
+        user = SworkCommonServiceImpl.getInstance().sworkUserOauthService(
+                openId);
+        if (user != null && !"".equals(user)) {
+            //验证通过
+            isHasBound = true;
+            request.getSession().setAttribute("wx_user_info", user);
         } else {
-            // 调用用户验证接口进行用户的openId验证
-            user = SworkCommonServiceImpl.getInstance().sworkUserOauthService(
-                    openId);
-            if (user != null && !"".equals(user)) {
-                System.out.println("User=======================>>" + user.toString());
-                isHasBound = true;
-                request.getSession().setAttribute("openid", openId);
-                request.getSession().setAttribute("wx_user_info", user);
-            }
-            return goPage(model, page);
+            //验证失败-进入验证页面
+            isHasBound = false;
+            request.getSession().setAttribute("wx_user_info", null);
         }
+        System.out.println("验证是否通过=================>>" + String.valueOf(isHasBound));
+        System.out.println("获取微信OPENID==============>>" + openId);
+        return goPage(model, page);
     }
 
     /**
@@ -143,12 +138,30 @@ public class SworkOpenWxController extends BaseController {
             model.addAttribute("openid", openId);
             return "weixin/swork/wxuserauthor";
         }
+        //首页
         if ("main".equals(page)) {
             model.addAttribute("phoneNum", user.getRealName());
             return "weixin/swork/main";
         }
-        if ("login".equals(page)) {
+        //登录界面
+        if ("swUser".equals(page)) {
             return "weixin/swork/login";
+        }
+        //问题上报
+        if ("swQuest".equals(page)) {
+            return "weixin/swork/questr";
+        }
+        //用户信息
+        if ("showuser".equals(page)) {
+            return "weixin/swork/userinfo";
+        }
+        //待办任务
+        if ("taskList".equals(page)) {
+            return "weixin/swork/taskList";
+        }
+        //历史纪录
+        if ("swHistory".equals(page)) {
+            return "weixin/swork/historyRecord";
         }
         return "common/error";
     }

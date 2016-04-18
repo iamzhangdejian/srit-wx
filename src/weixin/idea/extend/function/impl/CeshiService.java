@@ -27,13 +27,13 @@ public class CeshiService implements KeyServiceI {
 		ResourceBundle bundler = ResourceBundle.getBundle("sysConfig");
 		List<Article> articleList = new ArrayList<Article>();
 		Article article = new Article();
-		article.setTitle("微测试");
+		article.setTitle("通州三网融合测试信息1");
 		article.setDescription("");
 		article.setPicUrl(bundler.getString("domain")+ "/webpage/weixin/cms/images/index.jpg");
 		// 此userid后期需要通过高级接口获取到微信帐号，此处先以加密后的ID为参数进行传递
 		article.setUrl("http://www.sina.cn");
 		Article article1 = new Article();
-		article1.setTitle("微测试2");
+		article1.setTitle("通州三网融合测试信息2");
 		article1.setDescription("");
 		article1.setPicUrl(bundler.getString("domain")+ "/webpage/weixin/cms/images/index.jpg");
 		// 此userid后期需要通过高级接口获取到微信帐号，此处先以加密后的ID为参数进行传递

@@ -143,7 +143,7 @@ public class SworkQuesrController extends BaseController {
                 returnStr = SworkCommonServiceImpl.getInstance()
                         .sworkCallService(RequestCode.SUBMIT_CASE, user.getToken(), params);
                 JSONObject a = new JSONObject(returnStr);
-                if (a.get("v_case_id") == "-1") {       
+                if (a.get("v_case_id").equals("-1")) {       
                     caseId = "2";
                     modelMap.addAttribute("caseId", caseId);
                 } else {
@@ -379,51 +379,6 @@ public class SworkQuesrController extends BaseController {
             }
         }
         return res;
-    }
-
-    /**
-     * 获取问题跟踪列表数据
-     * 问题待办列表
-     *
-     * @param 
-     * @param request
-     * @return
-     */
-    @RequestMapping(params = "taskList")
-    @ResponseBody
-    public String taskList(String currentPage,String pageSize,HttpServletRequest request) {
-        user = (User) request.getSession().getAttribute("wx_user_info");
-        HashMap<String, String> params = new HashMap<String, String>();
-        // 获取案件类别编码
-        params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(),"All");
-        params.put(CallServiceKey.CURRENT_PAGE.getKey(),currentPage);
-        params.put(CallServiceKey.PAGE_SIZE.getKey(),pageSize);
-        String returnStr = SworkCommonServiceImpl.getInstance()
-                .sworkCallService(RequestCode.GET_TASK_LIST, user.getToken(), params);
-        
-//        returnStr = JsonHelper.getTreeNodeString(returnStr);
-        AjaxJson jon = new AjaxJson();
-        jon.setObj(returnStr);
-        return returnStr;   
-    }
-
-    
-    @RequestMapping(params="historyRecord")
-    @ResponseBody
-    public String historyRecord(String currentPage,String pageSize,HttpServletRequest request){
-    	 user = (User) request.getSession().getAttribute("wx_user_info");
-         HashMap<String, String> params = new HashMap<String, String>();
-         // 获取案件类别编码
-         params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(),"All");
-         params.put(CallServiceKey.CURRENT_PAGE.getKey(),currentPage);
-         params.put(CallServiceKey.PAGE_SIZE.getKey(),pageSize);
-         String returnStr = SworkCommonServiceImpl.getInstance()
-                 .sworkCallService(RequestCode.GET_TASK_LIST, user.getToken(), params);
-         
-//         returnStr = JsonHelper.getTreeNodeString(returnStr);
-         AjaxJson jon = new AjaxJson();
-         jon.setObj(returnStr);
-         return returnStr;   
     }
     
 }

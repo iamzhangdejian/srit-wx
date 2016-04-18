@@ -72,7 +72,7 @@ public class SworkController extends BaseController {
         }
         return rootUrl;
     }
-    
+
     /**
      * 页面调整引擎
      *
@@ -114,7 +114,7 @@ public class SworkController extends BaseController {
         PrintWriter writer;
         try {
             writer = response.getWriter();
-           System.out.println(html);
+            System.out.println(html);
             writer.println(html);
             writer.flush();
         } catch (IOException e) {

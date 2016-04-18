@@ -57,7 +57,7 @@
 		<script type="text/javascript">
 		$(document).bind("pageinit", function() {
 			isInit=0;
-			serverURL = "sworkQuesrController.do?historyRecord"; //服务器地址
+			serverURL = "sworkTaskController.do?historyRecord"; //服务器地址
 			startNum = 1;//当前页
 			//count = 5; //总页数
 			$.ajax({

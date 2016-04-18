@@ -33,7 +33,7 @@
     <!--     webupload初始化js -->
     <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
-<!--     <script src="plug-in/sworkWexin/js/jweixin-1.0.0.js"></script> -->
+    <script src="plug-in/swork/default/js/jweixin-1.0.0.js"></script>
 <script>
 function myFunction(lab,div){
 			document.getElementById(lab).style.color="#47cb2c"; 
@@ -138,7 +138,7 @@ function Function(lab,div){
                             <label class="weui_label">位置描述:</label>
                         </div>
                         <div class="weui_cell_bd weui_cell_primary" id="sp">
-                            <input  onFocus="myFunction('space','sp');" onBlur="Function('space','sp');" class="weui_input" id='spaceDesc' name='spaceDesc'
+                            <input  onFocus="myFunction('space','sp');" onBlur="Function('space','sp');" class="weui_input" id='spaceDesc' name='spaceDesc' 
                                    placeholder="请选择位置描述"/>
                         </div>
                     </div>
@@ -320,12 +320,12 @@ function Function(lab,div){
         jsApiList: ['chooseImage', 'uploadImage', 'previewImage', 'downloadImage', 'openLocation', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 
-    document.querySelector('#getLocation').onclick = function () {
-//     	alert(1)
+    document.querySelector('#spaceDesc').onclick = function () {
+    	alert(1)
         wx.getLocation({
             success: function (res) {
                 alert(JSON.stringify(res));
-                $("#getLocation").val = JSON.stringify(res);
+                $("#spaceDesc").val = JSON.stringify(res);
             },
             cancel: function (res) {
                 alert('用户拒绝授权获取地理位置');

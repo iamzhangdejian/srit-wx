@@ -10,6 +10,8 @@ public class RequestCode {
     public static final String SUBMIT_CASE = "10001";
     //用户注册
     public static final String REGISTER = "2234";
+    // 用户绑定
+    public static final String OPENCODE = "2235";
     //权限认证
     public static final String OAUTH = "2233";
     //发生区域

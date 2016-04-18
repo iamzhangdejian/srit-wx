@@ -35,7 +35,7 @@
 	padding:40 !important;
 }
 .ui-content .ui-listview, .ui-panel-inner>.ui-listview{
-	margin:-6px !important;
+	margin:0px !important;
 }
 .ui-li, .ui-li.ui-field-contain{
 	margin:0px !important;
@@ -44,7 +44,7 @@
 	padding:0 !important;
 }
 .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li{
-	padding:0 68px !important;
+	padding:3px 68px !important;
 }
 .list-fpmx a.ui-link-inherit{
 	padding:0 !important;
@@ -77,7 +77,7 @@ border-top:1px solid #cccccc!important;
 		<script type="text/javascript">
 		$(document).bind("pageinit", function() {
 			isInit=0;
-			serverURL = "sworkQuesrController.do?taskList"; //服务器地址
+			serverURL = "sworkTaskController.do?taskList"; //服务器地址
 			startNum = 1;//当前页
 			//count = 5; //总页数
 			$.ajax({
@@ -201,7 +201,7 @@ border-top:1px solid #cccccc!important;
 		</div>
 	</div>
 	<div style="display: none">
-	 <form action="sworkLoginController.do?swTaskcheck" method="post" name="form" id="form">
+	 <form action="sworkTaskController.do?swTaskcheck" method="post" name="form" id="form">
 	  <input id="case_code" name="case_code" class="weui_input" readOnly="true"/>
 	  <input id="send_op_info" name="send_op_info" class="weui_input" readOnly="true"/>
 	  <input id="case_pos_desc" name="case_pos_desc" class="weui_input" readOnly="true"/>

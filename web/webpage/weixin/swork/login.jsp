@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 <title>系统登录</title>
-	<link rel="stylesheet" href="plug-in/sworkWexin/css/weui.css"/>
-    <link rel="stylesheet" href="plug-in/sworkWexin/css/example.css"/>
+	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
 <!--     <script type="text/javascript" src="../../static/jquery/1.8.0/jquery.min.js"></script> -->
 </head>
 <body ontouchstart>
@@ -16,7 +16,7 @@
         <h1 class="page_title">系统登录</h1>
     </div>
     <div class="bd">
-         <form action="sworkLoginController.do?swMain" method="post">
+         <form action="sworkLoginController.do?swUser" method="post">
          
 <!--         <div class="weui_cells_title">表单</div> -->
         <div class="weui_cells weui_cells_form">
@@ -39,7 +39,9 @@
         </div>
          </form>
          
-
+         <div class="hd">
+        <a href="http://192.168.1.212:8080/srit-wxplat/sworkLoginController.do?swLogin"><p class="page_desc">公众通用户</p></a>
+        </div>
     </div>
 </div>
 </body>
