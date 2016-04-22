@@ -40,7 +40,7 @@
          </form>
          
          <div class="hd">
-        <a href="http://192.168.1.212:8080/srit-wxplat/sworkLoginController.do?swLogin"><p class="page_desc">公众通用户</p></a>
+        <a href="sworkLoginController.do?swLogin"><p class="page_desc">公众通用户</p></a>
         </div>
     </div>
 </div>

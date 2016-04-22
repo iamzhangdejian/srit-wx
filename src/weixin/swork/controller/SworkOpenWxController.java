@@ -37,7 +37,19 @@ public class SworkOpenWxController extends BaseController {
     private User user;
     private String openId;
     private boolean isHasBound;
+
     private String appId;
+    private String appSecret;
+
+    public SworkOpenWxController() {
+        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+        if (properties != null) {
+            appId = properties.readProperty("appId");
+            appSecret = properties.readProperty("appSecret");
+        } else {
+            appId = "wx16824288d04eaa3b";
+        }
+    }
 
     @Autowired
     public void setSystemService(SystemService systemService) {
@@ -47,15 +59,6 @@ public class SworkOpenWxController extends BaseController {
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
-    }
-
-    private SworkOpenWxController() {
-        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
-        if (properties != null) {
-            appId = properties.readProperty("appId");
-        } else {
-            appId = "wx16824288d04eaa3b";
-        }
     }
 
     /**
@@ -100,7 +103,7 @@ public class SworkOpenWxController extends BaseController {
         System.out.println("跳转page===================>>" + page);
         openId = (String) request.getSession().getAttribute("openid");
         if (openId == null || "".equals(openId)) {
-            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
+            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);
             if (openId == null || "".equals(openId)) {
                 return "common/error";
             } else {

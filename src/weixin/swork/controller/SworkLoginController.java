@@ -61,6 +61,18 @@ public class SworkLoginController extends BaseController {
         this.userService = userService;
     }
 
+    private String appId;
+    private String appSecret;
+
+    public SworkLoginController() {
+        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+        if (properties != null) {
+            appId = properties.readProperty("appId");
+            appSecret = properties.readProperty("appSecret");
+        } else {
+            appId = "wx16824288d04eaa3b";
+        }
+    }
     /**
      * 用户登录
      *
@@ -74,7 +86,7 @@ public class SworkLoginController extends BaseController {
         String openId = request.getParameter("openid");
         boolean isHasBound = false;
         if (code != null && !"".equals(code)) {
-            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
+            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);
             // 检查openId是否已注册，调用后台服务接口验证
             User user = SworkCommonServiceImpl.getInstance()
                     .sworkUserOauthService(openId);
@@ -106,7 +118,7 @@ public class SworkLoginController extends BaseController {
         String openId = request.getParameter("openid");
         boolean isHasBound = false;
         if (code != null && !"".equals(code)) {
-            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
+            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);;
             // 检查openId是否已注册，调用后台服务接口验证
             User user = SworkCommonServiceImpl.getInstance()
                     .sworkUserOauthService(openId);

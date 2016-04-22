@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 import org.apache.tools.ant.types.CommandlineJava.SysProperties;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.util.LogUtil;
+import org.jeecgframework.core.util.PropertiesUtil;
 import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.oConvertUtils;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,19 @@ import java.util.Map;
 @Controller
 @RequestMapping("/sworkController")
 public class SworkController extends BaseController {
+
+    private String appId;
+    private String appSecret;
+
+    public SworkController() {
+        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+        if (properties != null) {
+            appId = properties.readProperty("appId");
+            appSecret = properties.readProperty("appSecret");
+        } else {
+            appId = "wx16824288d04eaa3b";
+        }
+    }
 
     /**
      * swork 数据收集器配置
@@ -88,7 +102,8 @@ public class SworkController extends BaseController {
         String code = request.getParameter("code");
         if (code != null && !"".equals(code)) {
             System.out.println("code=======================>>" + code);
-            String openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(code);
+            String openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);
+            ;
             System.out.println("openId=====================>>" + openId);
         }
 

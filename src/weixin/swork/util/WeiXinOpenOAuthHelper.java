@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 public class WeiXinOpenOAuthHelper {
 
     public static String WEB_OAUTH_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
-    public static String WEB_OAUTH_ACCESSTOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx16824288d04eaa3b&secret=2735baacd08cb5d0849f73b88b372a83&code=CODE&grant_type=authorization_code";
+    public static String WEB_OAUTH_ACCESSTOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 
     public final static String SCOPE_BASE = "snsapi_base";
     public final static String SCOPE_USERINFO = "snsapi_userinfo";
@@ -56,12 +56,13 @@ public class WeiXinOpenOAuthHelper {
      * @param code
      * @return
      */
-    public String getOpenID(String code) {
+    public String getOpenID(String appid, String secret, String code) {
         String openId = null;
         //String access_token = null;
         //String refresh_token = null;
         String expires_in = null;
-        String web_oauth_accesstken_url = WEB_OAUTH_ACCESSTOKEN_URL.replace("CODE", code);
+
+        String web_oauth_accesstken_url = WEB_OAUTH_ACCESSTOKEN_URL.replace("CODE", code).replace("APPID", appid).replace("SECRET", secret);
         JSONObject web_oauth_json = WeixinUtil.httpRequest(web_oauth_accesstken_url, "GET", null);
         if (null != web_oauth_json) {
             try {
