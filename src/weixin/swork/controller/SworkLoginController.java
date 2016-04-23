@@ -73,6 +73,7 @@ public class SworkLoginController extends BaseController {
             appId = "wx16824288d04eaa3b";
         }
     }
+
     /**
      * 用户登录
      *
@@ -118,7 +119,8 @@ public class SworkLoginController extends BaseController {
         String openId = request.getParameter("openid");
         boolean isHasBound = false;
         if (code != null && !"".equals(code)) {
-            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);;
+            openId = WeiXinOpenOAuthHelper.getInstance().getOpenID(appId, appSecret, code);
+            ;
             // 检查openId是否已注册，调用后台服务接口验证
             User user = SworkCommonServiceImpl.getInstance()
                     .sworkUserOauthService(openId);
@@ -222,7 +224,10 @@ public class SworkLoginController extends BaseController {
                          HttpServletRequest request) throws JSONException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-        String openId = request.getParameter("openId");
+        String openId = (String) request.getSession().getAttribute("openid");
+        if (openId == null || "".equals(openId)) {
+
+        }
         HashMap<String, String> params = new HashMap<String, String>();
         params.put(CallServiceKey.USER_NAME.getKey(), userName);
         params.put(CallServiceKey.PASSWORD.getKey(), password);
