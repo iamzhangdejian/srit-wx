@@ -83,11 +83,11 @@
 							  }else{
 								  CASE_CODE=json[i].CASE_CODE;
 							  }
-							  var SEND_TIME;
-							  if(json[i].SEND_TIME==null || json[i].SEND_TIME =="undefined"){
-								  SEND_TIME="";
+							  var OCCUR_TIME;
+							  if(json[i].OCCUR_TIME==null || json[i].OCCUR_TIME =="undefined"){
+								  OCCUR_TIME="";
 							  }else{
-								  SEND_TIME=json[i].SEND_TIME;
+								  OCCUR_TIME=json[i].OCCUR_TIME;
 							  }
 							  var CASE_TYPE_NAME;
 							  if(json[i].CASE_TYPE_NAME==null || json[i].CASE_TYPE_NAME == "undefined"){
@@ -95,18 +95,18 @@
 							  }else{
 								  CASE_TYPE_NAME=json[i].CASE_TYPE_NAME;
 							  }
-							  var SEND_OP_INFO;
-							  if(json[i].SEND_OP_INFO==null || json[i].SEND_OP_INFO == "undefined"){
-								  SEND_OP_INFO="";
-							  }else{
-								  SEND_OP_INFO=json[i].SEND_OP_INFO;
-							  }
 							  var CASE_POS_DESC;
 							  if(json[i].CASE_POS_DESC==null || json[i].CASE_POS_DESC == "undefined"){
 								  CASE_POS_DESC="";
 							  }else{
 								  CASE_POS_DESC=json[i].CASE_POS_DESC;
-							  } 
+							  }
+							  var CASE_DESC;
+							  if(json[i].CASE_DESC==null || json[i].CASE_DESC == "undefined"){
+								  CASE_DESC="";
+							  }else{
+								  CASE_DESC=json[i].CASE_DESC;
+							  }
 							  var CASE_BIZ_TYPE_NAME;
 							  if(json[i].CASE_BIZ_TYPE_NAME==null || json[i].CASE_BIZ_TYPE_NAME == "undefined"){
 								  CASE_BIZ_TYPE_NAME="";
@@ -137,8 +137,8 @@
 							  htmls+='<li><a href="javascript:" onclick="showHis(\''+CASE_ID+'\')"<img src="">'
 							  htmls+='<p>案卷编号：<span class="text-no">'+CASE_CODE+'</span></p>';
 							  htmls+='<p>案件类别：<span class="text-no">'+CASE_TYPE_NAME+'</span></p>';
-							  htmls+='<p>位置描述：<span class="text-no">'+CASE_POS_DESC+'</span></p>';
-							  htmls+='<p>派发时间：<span class="text-no">'+SEND_TIME+'</span></p>';
+							  htmls+='<p>问题描述：<span class="text-no">'+CASE_DESC+'</span></p>';
+							  htmls+='<p>上报时间：<span class="text-no">'+OCCUR_TIME+'</span></p>';
 							  htmls+='</a></li>' 
 						  };
 								if(htmls!=null && htmls!=""){

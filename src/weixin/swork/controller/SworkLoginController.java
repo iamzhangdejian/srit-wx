@@ -236,6 +236,7 @@ public class SworkLoginController extends BaseController {
 
         String datas = SworkCommonServiceImpl.getInstance().sworkCallService(
                 RequestCode.OPENCODE, "", params);
+        System.out.println("return===============>>" + datas);
         // 如果已经绑定则进入主界面，如未绑定则进入验证绑定界面
         JSONObject a = new JSONObject(datas);
 
