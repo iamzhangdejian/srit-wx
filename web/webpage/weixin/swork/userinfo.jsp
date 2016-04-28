@@ -16,7 +16,7 @@
 
 </div>
 <script type="text/html" id="tpl_home">
-    <div class="page" style="margin-top: -22px;">
+    <div class="page" style="margin-top: -11px;">
 <!--         <div class="hd"> -->
 <!--             <h1 class="page_title">头像</h1> -->
 <%--             <p class="page_desc">${phone_num}</p> --%>

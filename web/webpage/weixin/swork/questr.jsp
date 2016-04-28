@@ -325,7 +325,9 @@ function Function(lab,div){
 				jsApiList: ['chooseImage', 'uploadImage', 'previewImage', 'downloadImage', 'openLocation', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 			});
    	 wx.ready(function(){
-    	document.querySelector('#spaceDesc').onclick = function () {
+   		 
+//    		 获取地理位置
+    	$(function(){
             wx.getLocation({
                 success: function (res) {
 				
@@ -340,7 +342,9 @@ function Function(lab,div){
                     alert('用户拒绝授权获取地理位置');
                 }
             });
-        };
+        });
+        
+//   
     	
   })
     
