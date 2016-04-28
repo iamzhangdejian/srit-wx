@@ -16,11 +16,11 @@
 
 </div>
 <script type="text/html" id="tpl_home">
-    <div class="page">
-        <div class="hd">
-            <h1 class="page_title">头像</h1>
-            <p class="page_desc">${phone_num}</p>
-        </div>
+    <div class="page" style="margin-top: -22px;">
+<!--         <div class="hd"> -->
+<!--             <h1 class="page_title">头像</h1> -->
+<%--             <p class="page_desc">${phone_num}</p> --%>
+<!--         </div> -->
         <div class="bd">
             <!--         <div class="weui_cells_title">表单</div> -->
             <div class="weui_cells weui_cells_access">

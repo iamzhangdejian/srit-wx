@@ -8,14 +8,36 @@
     <title>详细信息</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-   <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+<!--    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/> -->
+<!--     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/> -->
+<!-- 	<link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/> -->
+<!--     <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>     -->
+ <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/multilevelmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/animations.css"/>
+    <link rel="stylesheet" type="text/css" href="plug-in/bootstrap/css/bootstrap-treeview.css"/>
+    <script src="plug-in/bootstrap/js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="plug-in/swork/plugin/treeJquery/css/default.css">
+    <link href="plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
-	<link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
-    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>    
+    <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
+       <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
+
+    <!--     预览图片插件css -->
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
+    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
+    <!--     end！！ -->
+    <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
+    <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
+    <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
+    <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>
 </head>
 <body ontouchstart>
 
-<div id="pt-main" class="pt-perspective">
+<div id="pt-main" class="pt-perspective"    style="margin-top: -11px;">
     <div class="pt-page pt-page-1">
         <form  method="post" name="parentCheck" id="parentCheck">
             <div class="page slideIn cell button">
@@ -28,7 +50,7 @@
                         </div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <input id="questType1" name="questType1"
-                                   class="weui_input" placeholder="请输入问题类别" readOnly="true"/>
+                                   class="weui_input" placeholder="请输入问题类别" readOnly="true" value="${case_type_name }"/>
                             <!-- 返回问题类别选择值得隐藏input -->
                             <input type="text" style="display: none" id="questType" name="questType"/>
                         </div>

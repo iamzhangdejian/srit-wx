@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     end！！ -->
+    <!--     高德逆地理编码 -->
+<!-- <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/> -->
+<!--     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=ec80e37ae120ec01d641fbc21ac75f62&plugin=AMap.Geocoder"></script> -->
+<!--     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script> -->
     <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
     <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
@@ -34,6 +38,7 @@
     <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
     <script src="plug-in/swork/default/js/jweixin-1.0.0.js"></script>
+
 <script>
 function myFunction(lab,div){
 			document.getElementById(lab).style.color="#47cb2c"; 
@@ -90,7 +95,7 @@ function Function(lab,div){
     </script>
 
 </head>
-<body ontouchstart style="overflow: hidden;">
+<body ontouchstart style="overflow: hidden;" >
 
 <div id="pt-main" class="pt-perspective">
     <div class="pt-page pt-page-1">
@@ -166,7 +171,7 @@ function Function(lab,div){
                         <input type="hidden" id="divSlideurl" name=divSlideurls />
                     </div>
                     <!--附件集合结束 -->
-
+					<!-- <div id="container" style="display: none;"></div> -->
 
                 </div>
 
@@ -311,36 +316,39 @@ function Function(lab,div){
     }
 
     //     通过config接口注入权限验证配置
-    wx.config({
-        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: '${map["appid"]}', // 必填，公众号的唯一标识
-        timestamp: '${map["timestamp"]}', // 必填，生成签名的时间戳
-        nonceStr: '${map["noncestr"]}', // 必填，生成签名的随机串
-        signature: '${map["signature"]}',// 必填，签名，见附录1
-        jsApiList: ['chooseImage', 'uploadImage', 'previewImage', 'downloadImage', 'openLocation', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-    });
-
-    document.querySelector('#spaceDesc').onclick = function () {
-    	alert(1)
-        wx.getLocation({
-            success: function (res) {
-                alert(JSON.stringify(res));
-                $("#spaceDesc").val = JSON.stringify(res);
-            },
-            cancel: function (res) {
-                alert('用户拒绝授权获取地理位置');
-            }
-        });
-    };
+			wx.config({
+				debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: '${map["appid"]}', // 必填，公众号的唯一标识
+				timestamp: '${map["timestamp"]}', // 必填，生成签名的时间戳
+				nonceStr: '${map["noncestr"]}', // 必填，生成签名的随机串
+				signature: '${map["signature"]}',// 必填，签名，见附录1
+				jsApiList: ['chooseImage', 'uploadImage', 'previewImage', 'downloadImage', 'openLocation', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+   	 wx.ready(function(){
+    	document.querySelector('#spaceDesc').onclick = function () {
+            wx.getLocation({
+                success: function (res) {
+				
+//                     alert(JSON.stringify(res));
+					var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+					var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+					var wz=longitude+","+latitude;
+					$("#spaceDesc").val(wz);
+//                     $("#spaceDesc").val=JSON.stringify(res);
+                },
+                cancel: function (res) {
+                    alert('用户拒绝授权获取地理位置');
+                }
+            });
+        };
+    	
+  })
+    
 
 
 </script>
 <script src="plug-in/swork/plugin/banners/js/slider.js"></script>
-<script type="text/javascript">
-function tanchu() {
 
-};
-</script>
 </body>
 </html>
 
