@@ -25,7 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 
+
+
 import weixin.guanjia.account.service.WeixinAccountServiceI;
+import weixin.guanjia.core.util.WeixinUtil;
 import weixin.swork.entity.AttachBase;
 import weixin.swork.entity.QuestFormInfo;
 import weixin.swork.entity.Upload;
@@ -41,6 +44,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -206,15 +211,43 @@ public class SworkQuesrController extends BaseController {
      */
     @RequestMapping(params = "upLoad")
     @ResponseBody
-    public Map<Object, Object> fileUpload(HttpServletRequest request, HttpServletResponse response,Model model) throws IllegalStateException, IOException {
+    public Map<Object, Object> fileUpload(HttpServletRequest request, HttpServletResponse response,File file,Model model) throws IllegalStateException, IOException {
+    	 PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+         String appId = properties.readProperty("appId");
+         String appSecret = properties.readProperty("appSecret");
+    	String media_id = request.getParameter("serverId");
+//	    String path = "d:/attach/" + media_id + ".jpg";
+	    System.out.println("media_id: " + media_id);
+	    String access_token = new Wechat().getAccessToken(appId,appSecret);
+	    InputStream is = null;
+	    String url = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=" + access_token + "&media_id=" + media_id;
+
+
+
+
+	      URL urlGet = new URL(url);
+	      HttpURLConnection conn = (HttpURLConnection)urlGet.openConnection();
+	      conn.setRequestMethod("GET");
+	      conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+	      conn.setDoOutput(true);
+	      conn.setDoInput(true);
+
+	      System.setProperty("sun.net.client.defaultConnectTimeout", "30000");
+	      System.setProperty("sun.net.client.defaultReadTimeout", "30000");
+
+	      conn.connect();
+
+	      is = conn.getInputStream();
+//	    return "uploadImg";
         user = (User) request.getSession().getAttribute("wx_user_info");
-        BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream());
-        String fn = new Date().getTime() + "_" + request.getParameter("name");
+        BufferedInputStream fileIn = new BufferedInputStream(is);
+        String fn = new Date().getTime() + "_" + media_id;
         byte[] buf = new byte[1024];
 //        System.out.println("request.getInputStream()===>" + request.getInputStream());
         //接收文件上传并保存到
-        String filePath = request.getSession().getServletContext().getRealPath("/attach/");
-        File files = new File(filePath+"\\" + fn);
+//        String filePath = request.getSession().getServletContext().getRealPath("/attach/");
+        String filePath = "d:/attach/";
+        File files = new File(filePath+"\\"+fn );
         Map<Object, Object> map=new HashMap<>();
         map.put("files", files);
         System.out.println("files:===>"+files);
@@ -244,6 +277,7 @@ public class SworkQuesrController extends BaseController {
         attachBase.setAttachSize(String.valueOf(files.length()));
         String attStr = SworkCommonServiceImpl.getInstance().sworkAttachLoad(user.getToken(), attachBase);
         map.put("attStr", attStr);
+        model.addAttribute("attStr", attStr);
         System.out.println(attStr);
         files.length();
         fileOut.flush();

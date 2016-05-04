@@ -196,7 +196,6 @@ public class SworkTaskController extends BaseController {
 
     /**
      * 获取历史纪录列表数据
-     *
      * @param currentPage
      * @param pageSize
      * @param request
@@ -218,7 +217,6 @@ public class SworkTaskController extends BaseController {
         jon.setObj(returnStr);
         return returnStr;
     }
-
     /**
      * 历史案件详细信息
      *
@@ -237,7 +235,7 @@ public class SworkTaskController extends BaseController {
         returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.DETAIL_TASK_LIST, user.getToken(), params);
         System.out.println(returnStr);
         JSONObject a = new JSONObject(returnStr);
-        modelMap.put("case_type_name", a.get("CASE_TYPE_NAME"));//事发区域
+        modelMap.put("case_type_name", a.get("CASE_TYPE_NAME"));//案件类别
         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
         modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述

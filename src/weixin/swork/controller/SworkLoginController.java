@@ -170,7 +170,8 @@ public class SworkLoginController extends BaseController {
         System.out.println("url====>" + url);
         Map map = wechat.jsConfig(url, appId, appSecret);
         model.addAttribute("map", map);
-        return "weixin/swork/questr";
+//        return "weixin/swork/questr";
+        return "weixin/swork/questr002";
     }
 
     /**
