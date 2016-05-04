@@ -10,13 +10,13 @@
 
 #divcss5{ margin:10px auto;} ;
 
-#imgd {
-    border-radius: 45px;
-    border: 1px solid #FFF;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
-    width: 60px;
-    height: 60px;
-}
+/* #imgd { */
+/*     border-radius: 45px; */
+/*     border: 1px solid #FFF; */
+/*     box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); */
+/*     width: 60px; */
+/*     height: 60px; */
+/* } */
 </style>
 	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
@@ -28,7 +28,7 @@
 	<script type="text/html" id="tpl_home">
 <div class="page">
     <div class="hd">
-        <div id="divcss5"><img id="imgd" src="http://uc.zhibo8.cc/data/avatar/000/74/79/39_avatar_small.jpg"  style="border-radius: 50%;margin:0 auto;display:table-cell;vertical-align: middle;"/></div> 
+        <div id="divcss5"><a href="sworkUserController.do?showuser"><img id="imgd" src="http://uc.zhibo8.cc/data/avatar/000/74/79/39_avatar_small.jpg"  style="border-radius: 50%;margin:0 auto;display:table-cell;vertical-align: middle;"/></a></div> 
         <p class="page_desc">${phoneNum}</p>
     </div>
     <div class="bd">

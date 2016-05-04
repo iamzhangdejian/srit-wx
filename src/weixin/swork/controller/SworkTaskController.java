@@ -210,6 +210,7 @@ public class SworkTaskController extends BaseController {
         params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(), "All");
         params.put(CallServiceKey.CURRENT_PAGE.getKey(), currentPage);
         params.put(CallServiceKey.PAGE_SIZE.getKey(), pageSize);
+//        params.put("", value)
         String returnStr = SworkCommonServiceImpl.getInstance()
                 .sworkCallService(RequestCode.HIS_TASK_LIST, user.getToken(), params);
 
@@ -239,6 +240,7 @@ public class SworkTaskController extends BaseController {
         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
         modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述
+        modelMap.put("occur_time", a.get("OCCUR_TIME"));//问题描述
 
         return "weixin/swork/histDetail";
 

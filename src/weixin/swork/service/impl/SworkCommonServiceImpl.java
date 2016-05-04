@@ -38,6 +38,7 @@ public class SworkCommonServiceImpl implements SworkCommonServiceI {
     private String SERVER_URL_OTHER = "NetGridWebService/services/WebService?wsdl";
     private String SERVER_URL_OTHER_NAMESPACE = "services/WebService";
     private String URL = "";
+//    private String SERVER_URL_downLoad="http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=" + access_token + "&media_id=" + media_id;;
     private static SworkCommonServiceImpl instance;
     private String SERVER_ATTACH_NAMESPACE = "http://impl.common.service.srit.com";
 

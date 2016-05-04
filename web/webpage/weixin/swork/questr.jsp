@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -17,7 +18,6 @@
     <link href="plug-in/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
-    <link rel="stylesheet" href="plug-in/swork/plugin/webuploader/css/webuploader.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
        <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
 
@@ -25,20 +25,27 @@
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
     <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
     <!--     end！！ -->
-    <!--     高德逆地理编码 -->
-<!-- <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/> -->
-<!--     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=ec80e37ae120ec01d641fbc21ac75f62&plugin=AMap.Geocoder"></script> -->
-<!--     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script> -->
-    <!--     <script src="plug-in/jquery/jquery-1.8.0.min.js"></script> -->
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
-    <script src="plug-in/swork/plugin/webuploader/js/webuploader.js"></script>
     <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>
-    <!--     webupload初始化js -->
-    <script src="plug-in/swork/plugin/webuploader/js/webuploaderBegin.js"></script>
     <!-- 微信原生jssdk接口js -->
     <script src="plug-in/swork/default/js/jweixin-1.0.0.js"></script>
 
+<style type="text/css">
+.weui_toastF {
+    position: fixed;
+    z-index: 3;
+    /* width: 7.6em; */
+    min-height: 7.6em;
+    top: 180px;
+    left: 50%;
+    margin-left: -3.8em;
+    background: rgba(40, 40, 40, 0.75);
+    text-align: center;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+</style>
 <script>
 function myFunction(lab,div){
 			document.getElementById(lab).style.color="#47cb2c"; 
@@ -157,19 +164,38 @@ function Function(lab,div){
                             </select>
                         </div>
                     </div>
-
-                    <!--图片上传部分-->
-                    <div class="weui_cells" style="margin-top:0.186471em">
-                        <div id="uploader-demo">
-                            <!--     用来存放item -->
-                            <!--                             <div id="fileList" class="uploader-list" style="width: 100%;margin-left: 14px;"></div> -->
-                            <div id="fileList" class="uploader-list" style="width: 100%;margin-left: 14px;"></div>
-                            <div id="filePicker" style="overflow: hidden;margin-left: 14px;margin-top: 18px;"></div>
-                        </div>
-                        <!--     <input type="text" style="display: none"  id="filename"  /> -->
+<!-- 图片上传 -->
+<!--     <div class="weui_cells weui_cells_form"> -->
+        <div class="weui_cell" style="margin-left: -8px;">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+                        <div class="weui_cell_hd">图片上传</div>
+                    </div>
+                    <div id="uploader-demos" class="weui_uploader_bd">
+                        <ul class="weui_uploader_files">
+<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
+<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
+<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
+<!--                             <li class="weui_uploader_file weui_uploader_status" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"> -->
+<!--                                 <div class="weui_uploader_status_content"> -->
+<!--                                     <i class="weui_icon_warn"></i> -->
+<!--                                 </div> -->
+<!--                             </li> -->
+<!--                             <li class="weui_uploader_file weui_uploader_status" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"> -->
+<!--                                 <div class="weui_uploader_status_content">50%</div> -->
+<!--                             </li> -->
+                        </ul>
                         <input type="hidden" id="pid" name="pid"/>
                         <input type="hidden" id="divSlideurl" name=divSlideurls />
+                        <div id="uploader-demo" style="margin-top: -9px;" class="weui_uploader_input_wrp">
+                            <input class="weui_uploader_input"  accept="image/jpg,image/jpeg,image/png,image/gif" multiple />
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+<!--     </div> -->
                     <!--附件集合结束 -->
 					<!-- <div id="container" style="display: none;"></div> -->
 
@@ -177,7 +203,7 @@ function Function(lab,div){
 
 
                 <div class="weui_btn_area">
-                    <input class="weui_btn weui_btn_primary" href="javascript:" type="submit" id="showTooltipss"
+                    <input class="weui_btn weui_btn_primary" onclick="return validate()" href="javascript:void(0)" type="submit" id="showTooltipss"
                            value="提交"/>
                 </div>
             </div>
@@ -238,12 +264,36 @@ function Function(lab,div){
         <p class="weui_toast_content">选择错误！</p>
     </div>
 </div>
+<!-- 案件类别不能为空！ -->
+<div id="caseType" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toastF">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content">问题类别不能为空！</p>
+    </div>
+</div>
+<!-- 事发区域不能为空！ -->
+<div id="CaseRegionId" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toastF">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content">事发区域不能为空！</p>
+    </div>
+</div>
+<!-- 问题描述不能为空！ -->
+<div id="CaseQuest" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toastF">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content">问题描述不能为空！</p>
+    </div>
+</div>
 
 <script src="plug-in/bootstrap/js/jquery.dlmenu.js"></script>
 <script src="plug-in/bootstrap/js/pagetransitions.js"></script>
 <script type="text/javascript">
     $(function () {
-    	
+//     	上报提示
         if ($("#caseId").val() == 1) {
             var $toastForm = $('#toastForm');
             if ($toastForm.css('display') != 'none') {
@@ -263,7 +313,13 @@ function Function(lab,div){
                 toastFormF.hide();
             }, 2000);
         }
+
     });
+    
+    
+
+    
+    
     function problem() {
         if ($("li").hasClass("node-selected")) {
             var id = document.getElementById('problembut').name;
@@ -342,17 +398,162 @@ function Function(lab,div){
                     alert('用户拒绝授权获取地理位置');
                 }
             });
-        });
+    	});
         
-//   
-    	
+//         图片上传接口
+        var images = {
+        	    localId: [],
+        	    serverId: []
+        	  };
+        	  document.querySelector('#uploader-demo').onclick = function () {
+        	    wx.chooseImage({
+        	    	count:2,
+        	    sourceType: ['album', 'camera'],
+        	      success: function (res) {
+        	    	  //alert(res);
+        	        images.localId = res.localIds;
+//         	        alert("images.localId"+images.localId);
+//         	        alert('已选择 ' + res.localIds.length + ' 张图片');
+						if (images.localId.length == 0) {
+            	        alert('请先使用 chooseImage 接口选择图片');
+            	        return;
+            	      }
+            	      var i = 0, length = images.localId.length;
+            	      images.serverId = res.localIds;
+					 
+            	      function upload() {
+						  //添加缩略图
+						  $(".weui_uploader_files").append('<li class="weui_uploader_file" onclick="showPictureF(\''+images.localId[i]+'\')" style="background-image:url('+images.localId[i]+')"></li>');        	        
+            	        wx.uploadImage({
+//             	        	isShowProgressTips: 1, // 默认为1，显示进度提示
+            	          localId: images.localId[i].toString(),
+            	          
+            	          success: function (res) {
+            	            i++;
+            	            alert('已上传：' + i + '/' + length);
+            	            serverId = res.serverId; // 返回图片的服务器端ID
+            	            images.serverId.push(res.serverId);
+            	            if (i < length) {
+            	              upload();
+							  
+            	            }
+							//var url="sworkQuesrController.do?questForm";
+							var url = "sworkQuesrController.do?upLoad&serverId="+serverId.toString();
+			     			var data = "{serverId:"+serverId.toString()+"}";
+			     			//alert("serverId: "+data);
+			     			$.post(url,data,function(attStr){
+								//alert("success");
+								//alert(attStr);
+								var atr=JSON.parse(attStr).attStr;
+								//alert(JSON.parse(attStr).attStr);
+								if ($("#pid").val() == "") {
+//						            $("#pid").val($("#pid").val() + response);
+						           $("#pid").val($("#pid").val() + atr);
+						           alert( $("#pid").val());
+						       } else {
+//						            $("#pid").val($("#pid").val() + "," + response);
+						           $("#pid").val($("#pid").val() + "," + atr);
+						           alert( $("#pid").val());
+						       }
+								
+								 
+							});
+            	          },
+            	          fail: function (res) {
+            	            alert(JSON.stringify(res));
+            	          }
+            	        });
+            	      }
+            	    
+            	      upload();
+					   if(images.localId.length>=2||i==1){
+		        	    	$(".weui_uploader_input_wrp").attr('style','display: none');
+		        	    }
+        	      }
+        	    
+        	    });
+        	   
+        	  };
+        
+        	  
   })
+  function showPictureF(ws){
+// 	  alert(12)
+        	      wx.previewImage({
+        	          current: ''+ws+'',
+        	          urls: [
+// 						ws,
+        	            ''+ws+''
+//         	            '',
+//         	            'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
+        	          ]
+        	        });
+        	     }
     
 
-
+//    	 验证表单是否为空
+function validate(){
+	var chooseType="";
+	var text1=$("#questType").val();
+	var text2=$("#eventRegionId").val();
+	var text3=$("#questDesc").val();
+	if(text1==''){
+// 		alert("问题类别不能为空！！");
+		chooseType=1;
+		var $caseType = $('#caseType');
+	    if ($caseType.css('display') != 'none') {
+	        return;
+	    }
+	    $caseType.show();
+	    setTimeout(function () {
+	    	$caseType.hide();
+	    }, 2000);	
+		return false;
+	}else if(text2==''){
+// 		alert("事发区域不能为空！！");
+		
+		var $CaseRegionId = $('#CaseRegionId');
+	    if ($CaseRegionId.css('display') != 'none') {
+	        return;
+	    }
+	    $CaseRegionId.show();
+	    setTimeout(function () {
+	    	$CaseRegionId.hide();
+	    }, 2000);	
+		return false;
+	}else if(text3==''){
+// 		alert("问题描述不能为空！！");
+		var $CaseQuest = $('#CaseQuest');
+	    if ($CaseQuest.css('display') != 'none') {
+	        return;
+	    }
+	    $CaseQuest.show();
+	    setTimeout(function () {
+	    	$CaseQuest.hide();
+	    }, 2000);	
+		return false;
+	}else if(text1==''&&text2==''){
+		alert("问题类别、事发区域为必填项！");
+		return false;
+	}else if(text3==''&&text2==''){
+		alert("问题描述、事发区域为必填项！");
+		return false;
+	}else if(text3==''&&text2==''&&text1==''){
+		alert("问题类别、事发区域、问题描述为必填项！");
+		return false;
+	}else{
+		return true;
+	}
+	
+	
+//  案件类别
+    if(chooseType==1){
+    	alert(1);
+    	
+    }
+}
 </script>
 <script src="plug-in/swork/plugin/banners/js/slider.js"></script>
 
 </body>
 </html>
-

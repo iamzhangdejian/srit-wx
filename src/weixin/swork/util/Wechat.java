@@ -1,14 +1,25 @@
 package weixin.swork.util;
 
 import net.sf.json.JSONObject;
+
 import org.jeecgframework.core.util.LogUtil;
+import org.jeecgframework.core.util.PropertiesUtil;
+import org.springframework.ui.Model;
+
 import weixin.guanjia.core.util.WeixinUtil;
 import weixin.p3.oauth2.def.WeiXinOpenConstants;
+import weixin.swork.controller.SworkQuesrController;
+import weixin.swork.entity.AttachBase;
 import weixin.swork.entity.User;
+import weixin.swork.service.impl.SworkCommonServiceImpl;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -48,7 +59,86 @@ public class Wechat {
         String temp = SHA1(list.get(0) + list.get(1) + list.get(2));
         return temp.equalsIgnoreCase(signature);
     }
+    
+    
+    
+    
+//    从微信服务器获取上传照片并保存到本地服务器方法
+    public static String fileUpload(String	media_id,String userToken,String filePath) throws IOException{
+   	 
+//    	获取appid,aoosecret
+    	PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+         String appId = properties.readProperty("appId");
+         String appSecret = properties.readProperty("appSecret");
 
+	    System.out.println("media_id: " + media_id);
+	    String access_token = new Wechat().getAccessToken(appId,appSecret);
+	    InputStream is = null;
+	    String url = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=" + access_token + "&media_id=" + media_id;
+	      URL urlGet = new URL(url);
+	      HttpURLConnection conn = (HttpURLConnection)urlGet.openConnection();
+	      conn.setRequestMethod("GET");
+	      conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+	      conn.setDoOutput(true);
+	      conn.setDoInput(true);
+	     
+      
+	      System.setProperty("sun.net.client.defaultConnectTimeout", "30000");
+	      System.setProperty("sun.net.client.defaultReadTimeout", "30000");
+
+	      conn.connect();
+
+	      is = conn.getInputStream();
+//	    return "uploadImg";
+        BufferedInputStream fileIn = new BufferedInputStream(is);
+        String fn = new Date().getTime() + "_"+media_id+".jpg";
+        System.out.println("fn=>"+fn);
+        byte[] buf = new byte[1024];
+//        System.out.println("request.getInputStream()===>" + request.getInputStream());
+        //接收文件上传并保存到
+        String Path = filePath;
+//        String filePath = "d:/attach/";
+        File files = new File(Path+"\\"+fn );
+        Map<Object, Object> map=new HashMap<>();
+        map.put("files", files);
+        System.out.println("files:===>"+files);
+        BufferedOutputStream fileOut = new BufferedOutputStream(new FileOutputStream(files));
+        while (true) {
+            // 读取**
+            int bytesIn = fileIn.read(buf, 0, 1024);
+            if (bytesIn == -1) {
+                break;
+            } else {
+                fileOut.write(buf, 0, bytesIn);
+            }
+        }
+        InputStream in = new FileInputStream(files);
+        byte[] data =new SworkQuesrController().toByteArray(in);
+        in.close();
+        
+        FileOutputStream outs = new FileOutputStream(files);
+        outs.write(data);
+//        System.out.println("data+++++++++++++" + data);
+        outs.close();
+      //传入借口数据对象  返回ID
+        AttachBase attachBase = new AttachBase();
+        attachBase.setBinaryInfo(data);
+        attachBase.setAttachInfoisUrl("0");
+        attachBase.setAttachType("3");// 视频4 音频5
+        attachBase.setAttachExtendName("jpg");
+        attachBase.setAttachSize(String.valueOf(files.length()));
+        String attStr = SworkCommonServiceImpl.getInstance().sworkAttachLoad(userToken, attachBase);
+        map.put("attStr", attStr);
+//        model.addAttribute("attStr", attStr);
+        System.out.println("attStr====>"+attStr);
+        files.length();
+        fileOut.flush();
+        fileOut.close();
+        return attStr;
+    }
+    
+    
+    
     public static String UploadImg(String appid, String accessToken, Map<String, String> textMap, Map<String, String> fileMap) {
 //	    String accessToken = new Wechat().getAccessToken(appid, secret);
 //	    user = (User) request.getSession().getAttribute("wx_user_info");
@@ -154,7 +244,7 @@ public class Wechat {
     }
 
 
-    private String getAccessToken(String appId, String appSecret) {
+    public String getAccessToken(String appId, String appSecret) {
         String requestUrl = WeixinUtil.access_token_url.replace("APPID", appId).replace("APPSECRET", appSecret);
         JSONObject jsonObject = WeixinUtil.httpRequest(requestUrl, "GET", null);
         String accessToken = "";
