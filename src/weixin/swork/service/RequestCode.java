@@ -24,6 +24,10 @@ public class RequestCode {
     public static final String SUBMIT_TASK_LIST = "1006";
     //案件信息
     public static final String DETAIL_TASK_LIST = "2003";
-//    历史信息
+    //历史信息
     public static final String HIS_TASK_LIST="1035";
+    //新闻列表
+    public static final String NEWS_LIST="2017";
+    //新闻详情
+    public static final String NEWS_CONTENT="2018";
 }
