@@ -49,7 +49,8 @@ input::-webkit-input-placeholder {
 	color:#47cb2c  !important;
 }
 .weui_cells_access .weui_cell_select .weui_cell_primary{
-	margin-left:4px ;
+/* 	margin-left:4px ; */
+    margin-left: 10px;
 	margin-right:15px;
 }
 .button{

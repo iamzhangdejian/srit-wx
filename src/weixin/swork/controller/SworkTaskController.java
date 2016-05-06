@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.model.json.AjaxJson;
+import org.jeecgframework.core.util.PropertiesUtil;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.web.system.service.UserService;
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,7 @@ import weixin.swork.service.CallServiceKey;
 import weixin.swork.service.RequestCode;
 import weixin.swork.service.impl.SworkCommonServiceImpl;
 import weixin.swork.util.JsonHelper;
+import weixin.swork.util.Wechat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +37,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 待办理列表
@@ -44,7 +48,7 @@ import java.util.HashMap;
 @Controller
 @RequestMapping("/sworkTaskController")
 public class SworkTaskController extends BaseController {
-
+	 private static Wechat wechat = new Wechat();
     private Logger log = Logger.getLogger(SworkQuesrController.class);
     private SystemService systemService;
     @Autowired
@@ -107,7 +111,7 @@ public class SworkTaskController extends BaseController {
      * case_code： 事项编号 SEND_OP_INFO ：处置要求 case_pos_desc：详细地址
      */
     @RequestMapping(params = "swTaskcheck")
-    public String swTaskcheck(ModelMap modelMap, HttpServletRequest request) {
+    public String swTaskcheck(ModelMap modelMap, HttpServletRequest request,Model model) {
         modelMap.put("send_op_info", request.getParameter("send_op_info"));
         modelMap.put("case_code", request.getParameter("case_code"));
         modelMap.put("case_pos_desc", request.getParameter("case_pos_desc"));
@@ -119,6 +123,17 @@ public class SworkTaskController extends BaseController {
         modelMap.put("case_biz_sn", request.getParameter("case_biz_sn"));
         System.out.println(request.getParameter("send_op_info"));
         System.out.println(request.getParameter("case_biz_type_name"));
+        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+        String appId = properties.readProperty("appId");
+        String appSecret = properties.readProperty("appSecret");
+        String urlEnd = "?swTaskcheck";
+        String url = request.getScheme() + "://" + request.getServerName()
+                + request.getRequestURI()
+                + urlEnd;
+        System.out.println("url====>" + url);
+        Map map = wechat.jsConfig(url, appId, appSecret);
+        model.addAttribute("map", map);
+       
         return "weixin/swork/taskcheck";
     }
 

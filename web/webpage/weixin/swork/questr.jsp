@@ -174,17 +174,6 @@ function Function(lab,div){
                     </div>
                     <div id="uploader-demos" class="weui_uploader_bd">
                         <ul class="weui_uploader_files">
-<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
-<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
-<!--                             <li class="weui_uploader_file" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li> -->
-<!--                             <li class="weui_uploader_file weui_uploader_status" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"> -->
-<!--                                 <div class="weui_uploader_status_content"> -->
-<!--                                     <i class="weui_icon_warn"></i> -->
-<!--                                 </div> -->
-<!--                             </li> -->
-<!--                             <li class="weui_uploader_file weui_uploader_status" style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"> -->
-<!--                                 <div class="weui_uploader_status_content">50%</div> -->
-<!--                             </li> -->
                         </ul>
                         <input type="hidden" id="pid" name="pid"/>
                         <input type="hidden" id="divSlideurl" name=divSlideurls />
@@ -268,24 +257,30 @@ function Function(lab,div){
 <div id="caseType" style="display: none;">
     <div class="weui_mask_transparent"></div>
     <div class="weui_toastF">
-        <i class="weui_icon_toast"></i>
+     	<div style="margin-top: 16px">
+        <i class="weui_icon_warn" ></i>
         <p class="weui_toast_content">问题类别不能为空！</p>
+     	</div>
     </div>
 </div>
 <!-- 事发区域不能为空！ -->
 <div id="CaseRegionId" style="display: none;">
     <div class="weui_mask_transparent"></div>
     <div class="weui_toastF">
-        <i class="weui_icon_toast"></i>
+    <div style="margin-top: 16px">
+        <i class="weui_icon_warn"></i>
         <p class="weui_toast_content">事发区域不能为空！</p>
+        </div>
     </div>
 </div>
 <!-- 问题描述不能为空！ -->
 <div id="CaseQuest" style="display: none;">
     <div class="weui_mask_transparent"></div>
     <div class="weui_toastF">
-        <i class="weui_icon_toast"></i>
+    <div style="margin-top: 16px">
+        <i class="weui_icon_warn" ></i>
         <p class="weui_toast_content">问题描述不能为空！</p>
+        </div>
     </div>
 </div>
 
