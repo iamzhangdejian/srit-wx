@@ -57,7 +57,7 @@
                     历史纪录
                 </p>
             </a>
-            <a href="http://www.96156.com.cn/convenience/" class="weui_grid js_grid">
+            <a href="sshareNewsController.do?swCity" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="plug-in/swork/default/images/remind.png" alt="">
                 </div>

@@ -151,24 +151,12 @@ public class SworkLoginController extends BaseController {
 
 
     /**
-     * 问题上报
+     * 问题上报z
      */
     @RequestMapping(params = "swQuest")
     public String uploadImg(HttpServletRequest request, Model model) {
-        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
-        String appId = properties.readProperty("appId");
-        String appSecret = properties.readProperty("appSecret");
-        String urlEnd = "?swQuest";
-        // 动态获取url
-        // request.getSchema()可以返回当前页面使用的协议，http 或是 https;
-        // request.getServerName()可以返回当前页面所在的服务器的名字;
-        // request.getServerPort()可以返回当前页面所在的服务器使用的端口,就是80;
-        // request.getContextPath()可以返回当前页面所在的应用的名字;
-        String url = request.getScheme() + "://" + request.getServerName()
-                + request.getRequestURI()
-                + urlEnd;
-        System.out.println("url====>" + url);
-        Map map = wechat.jsConfig(url, appId, appSecret);
+        String endUrl="?swQuest";
+        Map map=wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
 //        return "weixin/swork/questr";
         return "weixin/swork/questr";

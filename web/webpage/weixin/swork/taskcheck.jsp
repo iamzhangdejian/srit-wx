@@ -180,7 +180,7 @@ background:url("plug-in/swork/default/images/xinx.png") no-repeat scroll right c
                         <input type="hidden" id="pid" name="pid"/>
 <!--                         <input type="hidden" id="divSlideurl" name=divSlideurls /> -->
                         <div id="uploader-demo" style="margin-top: -9px;" class="weui_uploader_input_wrp">
-                            <input class="weui_uploader_input"  accept="image/jpg,image/jpeg,image/png,image/gif" multiple />
+<!--                             <input class="weui_uploader_input"  accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> -->
                         </div>
                     </div>
                 </div>
@@ -236,6 +236,7 @@ background:url("plug-in/swork/default/images/xinx.png") no-repeat scroll right c
 						jsApiList: ['chooseImage', 'uploadImage', 'previewImage', 'downloadImage', 'openLocation', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 					});
 		   	 wx.ready(function(){
+		   		 var j=0;
 //		         图片上传接口
 		        var images = {
 		        	    localId: [],
@@ -258,6 +259,7 @@ background:url("plug-in/swork/default/images/xinx.png") no-repeat scroll right c
 		            	      images.serverId = res.localIds;
 							 
 		            	      function upload() {
+		            	    	  j=j+1;
 								  //添加缩略图
 								  $(".weui_uploader_files").append('<li class="weui_uploader_file" onclick="showPictureF(\''+images.localId[i]+'\')" style="background-image:url('+images.localId[i]+')"></li>');        	        
 		            	        wx.uploadImage({
@@ -302,7 +304,7 @@ background:url("plug-in/swork/default/images/xinx.png") no-repeat scroll right c
 		            	      }
 		            	    
 		            	      upload();
-							   if(images.localId.length>=2||i==1){
+							   if(images.localId.length>=2||j==2){
 				        	    	$(".weui_uploader_input_wrp").attr('style','display: none');
 				        	    }
 		        	      }

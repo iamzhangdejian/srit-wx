@@ -237,7 +237,7 @@ $(function () {
     }
     $success.show();
     setTimeout(function () {
-//     	$success.hide();
+    	$success.hide();
     }, 2000);
 	}
 if ("${failsuccess}"== "2") {
@@ -250,7 +250,7 @@ if ("${failsuccess}"== "2") {
     	$fail.hide();
     }, 2000); 
 }
-})
+});
 </script>
 </body>
 </html>

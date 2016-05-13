@@ -60,7 +60,30 @@ public enum CallServiceKey {
     //案件CASE_ID
     CASE_ID("case_id"),
     //返回值
-    RESULT("result");
+    RESULT("result"),
+    //新闻id
+    NEWS_ID("news_id"),
+    //主题
+    V_POST_SUBJECT_NAME("v_post_subject_name"),
+    //主题编码
+    V_POST_TYPE_ID("v_post_type_id"),
+    //主题编码筛选条件
+    POST_TYPE_ID("post_type_id"),
+    //帖子内容
+    V_POST_CONTENT("v_post_content"),
+    //上报人id
+    V_POST_RPT_USER_ID("v_post_rpt_user_id"),
+    //上报人姓名
+    V_POST_RPT_USER_NAME("v_post_rpt_user_name"),
+    //帖子id筛选条件
+    POST_ID("post_id"),
+    //品论内容
+    V_POST_REPLY_CONTENT("v_post_reply_content"),
+    //评论者id
+    V_POST_REPLY_USER_ID("v_post_reply_user_id"),
+    //评论者姓名
+    V_POST_REPLY_USER_NAME("v_post_reply_user_name"),;
+
     private String key;
 
     private CallServiceKey(String key) {

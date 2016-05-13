@@ -66,49 +66,68 @@
           class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0">
     </bean>
     <!-- Excel 处理 根据用户输入进行对象处理 -->
-    <bean id="jeecgExcelView" class="org.jeecgframework.poi.excel.view.JeecgSingleExcelView"/>
-    <!-- 方言 -->
-    <bean id="dialect"
-          class="org.jeecgframework.core.common.hibernate.dialect.DialectFactoryBean">
-        <property name="dbType" value="${jdbc.dbType}"/>
-    </bean>
-    <!-- 异常处理类 -->
-    <bean id="exceptionHandler"
-          class="org.jeecgframework.core.common.exception.MyExceptionHandler"/>
-    <!-- 系统错误转发配置[并记录错误日志] -->
-    <bean
-            class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="defaultErrorView" value="500"></property>   <!-- 默认为500，系统错误(error.jsp) -->
-        <property name="defaultStatusCode" value="404"></property>
-        <property name="statusCodes"><!-- 配置多个statusCode -->
-            <props>
-                <prop key="error">500</prop>  <!-- error.jsp -->
-                <prop key="error1">404</prop>    <!-- error1.jsp -->
-            </props>
-        </property>
-        <property name="exceptionMappings">
-            <props>
-                <!-- 这里你可以根据需要定义N多个错误异常转发 -->
-                <prop key="java.sql.SQLException">dbError</prop> <!-- 数据库错误(dbError.jsp) -->
-                <prop key="org.springframework.web.bind.ServletRequestBindingException">bizError
-                </prop> <!-- 参数绑定错误(如：必须参数没传递)(bizError.jsp) -->
-                <prop key="java.lang.IllegalArgumentException">bizError</prop>  <!-- 参数错误(bizError.jsp) -->
-                <prop key="org.springframework.validation.BindException">bizError</prop>  <!-- 参数类型有误(bizError.jsp) -->
-                <prop key="java.lang.Exception">unknowError</prop>  <!-- 其他错误为'未定义错误'(unknowError.jsp) -->
-            </props>
-        </property>
-    </bean>
-    <!-- 拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean class="org.jeecgframework.core.interceptors.EncodingInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean class="org.jeecgframework.core.interceptors.AuthInterceptor">
-                <property name="excludeUrls">
-                    <list>
+
+    <bean id="jeecgExcelView" class="org.jeecgframework.poi.excel.view.JeecgSingleExcelView" />
+	<!-- 方言 -->
+	<bean id="dialect"
+		class="org.jeecgframework.core.common.hibernate.dialect.DialectFactoryBean">
+		<property name="dbType" value="${jdbc.dbType}" />
+	</bean>
+	<!-- 异常处理类 -->
+	<bean id="exceptionHandler"
+		class="org.jeecgframework.core.common.exception.MyExceptionHandler" />
+	<!-- 系统错误转发配置[并记录错误日志] -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="500"></property>   <!-- 默认为500，系统错误(error.jsp) -->
+		<property name="defaultStatusCode" value="404"></property>
+		<property name="statusCodes"><!-- 配置多个statusCode -->
+			<props>
+				<prop key="error">500</prop>  <!-- error.jsp -->
+				<prop key="error1">404</prop>    <!-- error1.jsp -->
+			</props>
+		</property>
+		<property name="exceptionMappings">
+			<props>
+				<!-- 这里你可以根据需要定义N多个错误异常转发 -->
+				<prop key="java.sql.SQLException">dbError</prop> <!-- 数据库错误(dbError.jsp) -->
+				<prop key="org.springframework.web.bind.ServletRequestBindingException">bizError</prop> <!-- 参数绑定错误(如：必须参数没传递)(bizError.jsp) -->
+				<prop key="java.lang.IllegalArgumentException">bizError</prop>  <!-- 参数错误(bizError.jsp) -->
+				<prop key="org.springframework.validation.BindException">bizError</prop>  <!-- 参数类型有误(bizError.jsp) -->
+				<prop key="java.lang.Exception">unknowError</prop>  <!-- 其他错误为'未定义错误'(unknowError.jsp) -->
+			</props>
+		</property>
+	</bean>
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="org.jeecgframework.core.interceptors.EncodingInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="org.jeecgframework.core.interceptors.AuthInterceptor">
+				<property name="excludeUrls">
+					<list>
+						
+						<!-- sui 测试 -->
+						<value>SworkPublicController.do?sui</value>
+						<!-- 公众首页-->
+						<value>SworkPublicController.do?publichome</value>
+						<!-- 投诉举报表单提交 -->
+						<value>SworkPublicController.do?publicForm</value>
+						<!-- 地图 -->
+						<value>SworkPublicController.do?publicMap</value>
+						<!-- 社区论坛 -->
+						<value>SworkShareController.do?publicForum</value>
+						<!--社区论坛发帖 -->
+						<value>SworkShareController.do?publicPost</value>
+						<!--回复帖子 -->
+						<value>SworkShareController.do?publicReplypost</value>
+						<!--个人中心 -->
+						<value>SworkPublicController.do?publicCore</value>
+						<value>SworkPublicController.do?publicNews</value>
+				
                         <value>loginController.do?goPwdInit</value>
                         <value>loginController.do?pwdInit</value>
                         <value>loginController.do?login</value>
@@ -152,6 +171,7 @@
                         <value>sworkQuesrController.do?getTree</value>
                         <!-- 上传附件 -->
                         <value>sworkQuesrController.do?upLoad</value>
+<!--                         <value>sworkQuesrController.do?downLoad</value> -->
                         <!-- 问题跟踪跳转 -->
                         <value>sworkTaskController.do?swTrack</value>
                         <!-- 历史记录跳转 -->
@@ -174,6 +194,12 @@
                         <value>sworkTaskController.do?historyRecord</value>
                         <!--用户信息查看 -->
                         <value>sworkUserController.do?showuser</value>
+                        <!--跳到新闻界面 -->
+						<value>sshareNewsController.do?swCity</value>
+						<!--获取新闻列表 -->
+						<value>sshareNewsController.do?newsList</value>
+						<!--获取新闻详细 -->
+						<value>sshareNewsController.do?newsContent</value>
                     </list>
                 </property>
                 <!-- 模糊匹配 -->
@@ -186,6 +212,7 @@
             </bean>
         </mvc:interceptor>
     </mvc:interceptors>
+
 
 
 </beans>

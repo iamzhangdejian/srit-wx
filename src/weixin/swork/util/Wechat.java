@@ -60,7 +60,26 @@ public class Wechat {
         return temp.equalsIgnoreCase(signature);
     }
     
-    
+//    获取验证wx.config是否通过的方法的参数
+    public static Map<String , String> wxConfig(HttpServletRequest request,String endUrl){
+    	PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+        String appId = properties.readProperty("appId");
+        String appSecret = properties.readProperty("appSecret");
+//        String urlEnd = "?hisDetail";
+        String urlEnd = endUrl;
+        // 动态获取url
+        // request.getSchema()可以返回当前页面使用的协议，http 或是 https;
+        // request.getServerName()可以返回当前页面所在的服务器的名字;
+        // request.getServerPort()可以返回当前页面所在的服务器使用的端口,就是80;
+        // request.getContextPath()可以返回当前页面所在的应用的名字;
+        String url = request.getScheme() + "://" + request.getServerName()
+                + request.getRequestURI()
+                + urlEnd;
+        System.out.println("url====>" + url);
+        Map map = new Wechat().jsConfig(url, appId, appSecret);
+//        model.addAttribute("map", map);
+        return map;
+    }
     
     
 //    从微信服务器获取上传照片并保存到本地服务器方法
@@ -81,13 +100,9 @@ public class Wechat {
 	      conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	      conn.setDoOutput(true);
 	      conn.setDoInput(true);
-	     
-      
 	      System.setProperty("sun.net.client.defaultConnectTimeout", "30000");
 	      System.setProperty("sun.net.client.defaultReadTimeout", "30000");
-
 	      conn.connect();
-
 	      is = conn.getInputStream();
 //	    return "uploadImg";
         BufferedInputStream fileIn = new BufferedInputStream(is);

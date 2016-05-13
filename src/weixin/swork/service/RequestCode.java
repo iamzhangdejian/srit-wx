@@ -30,4 +30,12 @@ public class RequestCode {
     public static final String NEWS_LIST="2017";
     //新闻详情
     public static final String NEWS_CONTENT="2018";
+    //论坛列表
+    public static final String BBS_LIST="2013";
+    //根据Id查询上报的论坛帖子详细信息及评论
+    public static final String BBS_POSBIZINFO="2014";
+    //新增论坛帖子
+    public static final String ADD_BBS_POSTINFO="2015";
+    //新增论坛帖子评论
+    public static final String ADD_BBS_POSTBIZINFO="2016";
 }

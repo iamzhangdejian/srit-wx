@@ -178,7 +178,7 @@ function Function(lab,div){
                         <input type="hidden" id="pid" name="pid"/>
                         <input type="hidden" id="divSlideurl" name=divSlideurls />
                         <div id="uploader-demo" style="margin-top: -9px;" class="weui_uploader_input_wrp">
-                            <input class="weui_uploader_input"  accept="image/jpg,image/jpeg,image/png,image/gif" multiple />
+<!--                             <input class="weui_uploader_input"  accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> -->
                         </div>
                     </div>
                 </div>
@@ -188,13 +188,13 @@ function Function(lab,div){
                     <!--附件集合结束 -->
 					<!-- <div id="container" style="display: none;"></div> -->
 
-                </div>
-
-
                 <div class="weui_btn_area">
                     <input class="weui_btn weui_btn_primary" onclick="return validate()" href="javascript:void(0)" type="submit" id="showTooltipss"
                            value="提交"/>
                 </div>
+                </div>
+
+
             </div>
 
         </form>
@@ -394,7 +394,7 @@ function Function(lab,div){
                 }
             });
     	});
-        
+    	 var j=0;
 //         图片上传接口
         var images = {
         	    localId: [],
@@ -417,6 +417,7 @@ function Function(lab,div){
             	      images.serverId = res.localIds;
 					 
             	      function upload() {
+            	    	  j=j+1;
 						  //添加缩略图
 						  $(".weui_uploader_files").append('<li class="weui_uploader_file" onclick="showPictureF(\''+images.localId[i]+'\')" style="background-image:url('+images.localId[i]+')"></li>');        	        
             	        wx.uploadImage({
@@ -461,7 +462,7 @@ function Function(lab,div){
             	      }
             	    
             	      upload();
-					   if(images.localId.length>=2||i==1){
+					   if(images.localId.length>=2||j==2){
 		        	    	$(".weui_uploader_input_wrp").attr('style','display: none');
 		        	    }
         	      }
@@ -544,7 +545,6 @@ function validate(){
 //  案件类别
     if(chooseType==1){
     	alert(1);
-    	
     }
 }
 </script>

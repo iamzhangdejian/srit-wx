@@ -624,7 +624,8 @@
 /* 		margin-bottom: 10px !important; */
 /* 	} */
 
-	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 50px !important; max-height: 50px !important;text-align: center;}
+/* 	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 50px !important; max-height: 50px !important;text-align: center;} */
+	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 56px !important; text-align: center;height:69px;}
 	.list-fpmx .ui-link-inherit{padding-left: 68px!important}
 	.list-fpmx .pot-normal, .list-fpmx .pot-back, .list-fpmx .pot-wast {
 		font-weight: bold;

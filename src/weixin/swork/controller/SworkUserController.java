@@ -66,20 +66,9 @@ public class SworkUserController extends BaseController {
             modelMap.put("user_token", user.getToken());
             modelMap.put("user_openid", user.getOpenID());
         }
-        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
-        String appId = properties.readProperty("appId");
-        String appSecret = properties.readProperty("appSecret");
-        String urlEnd = "?swQuest";
-        // 动态获取url
-        // request.getSchema()可以返回当前页面使用的协议，http 或是 https;
-        // request.getServerName()可以返回当前页面所在的服务器的名字;
-        // request.getServerPort()可以返回当前页面所在的服务器使用的端口,就是80;
-        // request.getContextPath()可以返回当前页面所在的应用的名字;
-        String url = request.getScheme() + "://" + request.getServerName()
-                + request.getRequestURI()
-                + urlEnd;
-        System.out.println("url====>" + url);
-        Map map = wechat.jsConfig(url, appId, appSecret);
+//       获取调用微信接口验证参数
+        String endUrl="?showuser";
+        Map map = wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
 
         return "weixin/swork/userinfo";

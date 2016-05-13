@@ -123,15 +123,10 @@ public class SworkTaskController extends BaseController {
         modelMap.put("case_biz_sn", request.getParameter("case_biz_sn"));
         System.out.println(request.getParameter("send_op_info"));
         System.out.println(request.getParameter("case_biz_type_name"));
-        PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
-        String appId = properties.readProperty("appId");
-        String appSecret = properties.readProperty("appSecret");
-        String urlEnd = "?swTaskcheck";
-        String url = request.getScheme() + "://" + request.getServerName()
-                + request.getRequestURI()
-                + urlEnd;
-        System.out.println("url====>" + url);
-        Map map = wechat.jsConfig(url, appId, appSecret);
+        
+//        获取微信接口认证参数
+        String endUrl="?swTaskcheck";
+        Map map=wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
        
         return "weixin/swork/taskcheck";
@@ -218,7 +213,7 @@ public class SworkTaskController extends BaseController {
      */
     @RequestMapping(params = "historyRecord")
     @ResponseBody
-    public String historyRecord(String currentPage, String pageSize, HttpServletRequest request) {
+    public String historyRecord(String currentPage, String pageSize, HttpServletRequest request,Model model) {
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<String, String>();
         // 获取案件类别编码
@@ -231,6 +226,8 @@ public class SworkTaskController extends BaseController {
 
         AjaxJson jon = new AjaxJson();
         jon.setObj(returnStr);
+        
+       
         return returnStr;
     }
     /**
@@ -239,7 +236,7 @@ public class SworkTaskController extends BaseController {
      * @throws JSONException
      */
     @RequestMapping(params = "hisDetail")
-    public String hisDetail(ModelMap modelMap, HttpServletRequest request) throws JSONException {
+    public String hisDetail(ModelMap modelMap, HttpServletRequest request,Model model) throws JSONException {
         String caseId = "";
 //    	获取用户信息
         user = (User) request.getSession().getAttribute("wx_user_info");
@@ -255,8 +252,11 @@ public class SworkTaskController extends BaseController {
         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
         modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述
-        modelMap.put("occur_time", a.get("OCCUR_TIME"));//问题描述
-
+        modelMap.put("rpt_time", a.get("RPT_TIME"));//上报时间
+//        获取微信接口验证参数
+        String endUrl="?hisDetail";
+        Map map=wechat.wxConfig(request, endUrl);
+        model.addAttribute("map", map);
         return "weixin/swork/histDetail";
 
     }
