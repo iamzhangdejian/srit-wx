@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/jquery.mobile.min.css" />
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/theme/theme.min.css" />
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/styles.css" />
+	<link rel="stylesheet" href="plug-in/swork/tasklist/css/customtask.css" />
 	<script src="plug-in/swork/tasklist/js/jquery.min.js"></script>
 	<script src="plug-in/swork/tasklist/js/mobileinit.js"></script>
 	<script src="plug-in/swork/tasklist/js/jquery.mobile.min.js"></script>
@@ -135,10 +136,10 @@
 							  
 // 							  htmls+='<li><a href="javascript:"  onclick="openNew(\''+CASE_BIZ_SN+'\',\''+CASE_ID+'\',\''+CASE_CODE+'\',\''+SEND_OP_INFO+'\',\''+CASE_POS_DESC+'\',\''+CASE_BIZ_TYPE_NAME+'\',\''+CASE_BIZ_TYPE_ID+'\')"<img src="">'
 							  htmls+='<li><a href="javascript:" onclick="showHis(\''+CASE_ID+'\')"<img src="">'
-							  htmls+='<p>案卷编号：<span class="text-no">'+CASE_CODE+'</span></p>';
-							  htmls+='<p>案件类别：<span class="text-no">'+CASE_TYPE_NAME+'</span></p>';
-							  htmls+='<p>问题描述：<span class="text-no">'+CASE_DESC+'</span></p>';
-							  htmls+='<p>上报时间：<span class="text-no">'+OCCUR_TIME+'</span></p>';
+							  htmls+='<p>案卷编号：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_CODE+'</span></p>';
+							  htmls+='<p>案件类别：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_TYPE_NAME+'</span></p>';
+							  htmls+='<p>问题描述：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_DESC+'</span></p>';
+							  htmls+='<p>上报时间：<span class="text-no" style="font-size:15px;font-weight:normal">'+OCCUR_TIME+'</span></p>';
 							  htmls+='</a></li>' 
 						  };
 								if(htmls!=null && htmls!=""){

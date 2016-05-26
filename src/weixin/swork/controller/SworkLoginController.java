@@ -101,7 +101,7 @@ public class SworkLoginController extends BaseController {
         if (!isHasBound) {
             return "weixin/swork/wxuserauthor";
         } else {
-            return "weixin/swork/main";
+            return "weixin/spublic/sui";
         }
 
     }
@@ -186,7 +186,7 @@ public class SworkLoginController extends BaseController {
         if (user != null && !"".equals(user)) {
             request.getSession().setAttribute("wx_user_info", user);
             request.getSession().setAttribute("phoneNum", phoneNum);
-            return "weixin/swork/main";
+            return "weixin/spublic/sui";
         }
 
         // 通过手机号进行注册

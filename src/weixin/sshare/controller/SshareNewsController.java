@@ -38,7 +38,7 @@ public class SshareNewsController {
     @RequestMapping(params = "swCity")
     public String swTrack() {
 
-        return "weixin/swork/newsPage";
+        return "weixin/sshare/newsPage";
     }
     /**
      * 获取新闻列表信息
@@ -61,7 +61,7 @@ public class SshareNewsController {
                  .sworkCallService(RequestCode.NEWS_LIST, "", params);
          AjaxJson jon = new AjaxJson();
          jon.setObj(returnStr);
-         System.out.println("returnStr=====>"+returnStr);
+//         System.out.println("returnStr=====>"+returnStr);
          return returnStr;
     }
 
@@ -79,18 +79,16 @@ public class SshareNewsController {
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<>();
         params.put(CallServiceKey.NEWS_ID.getKey(), news_id);
-        System.out.println("params====>"+params);
+//        System.out.println("params====>"+params);
         String returnStr = "";
         returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.NEWS_CONTENT, "", params);
-        System.out.println("returnStr2====>"+returnStr);
+//        System.out.println("returnStr2====>"+returnStr);
 //        JSONObject obj = JSONObject.
 //        System.out.println("obj====>"+obj);
 //        JSONObject a = new JSONObject(returnStr);
         modelMap.put("a", returnStr);//事发区域
-//        modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
-//        modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述
 
-        return "weixin/swork/newsDetail";
+        return "weixin/sshare/newsDetail";
     }
 
 }

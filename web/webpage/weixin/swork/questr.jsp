@@ -19,12 +19,7 @@
     <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/questr.css"/>
-       <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
-
-    <!--     预览图片插件css -->
-    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/style.css"/>
-    <link rel="stylesheet" href="plug-in/swork/plugin/banners/css/styleShow.css"/>
-    <!--     end！！ -->
+    <link rel="stylesheet" href="plug-in/swork/tasklist/css/custom.css"/>
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
     <script src="plug-in/bootstrap/js/bootstrap.min.js"></script>
     <script src="plug-in/swork/plugin/treeJquery/js/bootstrap-treeview.js"></script>

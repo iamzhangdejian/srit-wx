@@ -77,6 +77,7 @@ public enum CallServiceKey {
     V_POST_RPT_USER_NAME("v_post_rpt_user_name"),
     //帖子id筛选条件
     POST_ID("post_id"),
+    V_POST_ID("v_post_id"),
     //品论内容
     V_POST_REPLY_CONTENT("v_post_reply_content"),
     //评论者id

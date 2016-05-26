@@ -167,7 +167,6 @@ public class SworkTaskController extends BaseController {
         //取用户信息
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<>();
-
         params.put(CallServiceKey.CASE_ID.getKey(), request.getParameter("case_id"));
         params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(), request.getParameter("case_biz_type_id"));
         params.put(CallServiceKey.CASE_BIZ_SN.getKey(), request.getParameter("case_biz_sn"));
@@ -189,8 +188,6 @@ public class SworkTaskController extends BaseController {
         } else {
             modelMap.addAttribute("failsuccess", "");
         }
-
-
         return "weixin/swork/taskList";
     }
 
@@ -258,8 +255,6 @@ public class SworkTaskController extends BaseController {
         Map map=wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
         return "weixin/swork/histDetail";
-
     }
-
 
 }

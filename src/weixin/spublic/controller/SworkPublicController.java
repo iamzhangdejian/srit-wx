@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import weixin.swork.service.CallServiceKey;
 import weixin.swork.service.RequestCode;
 import weixin.swork.service.impl.SworkCommonServiceImpl;
 import weixin.swork.util.JsonHelper;
+import weixin.swork.util.Wechat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,6 +34,9 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
+
+import jodd.servlet.URLDecoder;
 
 /**
  * 公众
@@ -42,7 +47,7 @@ import java.util.HashMap;
 @Controller
 @RequestMapping("/SworkPublicController")
 public class SworkPublicController extends BaseController {
-
+	private static Wechat wechat = new Wechat();
 	private User user;
   
     /**
@@ -52,10 +57,14 @@ public class SworkPublicController extends BaseController {
      */
    
     @RequestMapping(params = "publichome")
-    public String publichome( ModelMap modelMap, HttpServletRequest request) throws JSONException {
-    	 
+    public String publichome( ModelMap modelMap, HttpServletRequest request,Model model) throws JSONException {
+    	//    	获得验证微信接口的参数方法
+//   	 String endUrl="?publichome";
+   	 String endUrl="?sui";
+        Map map=wechat.wxConfig(request, endUrl);
+        model.addAttribute("map", map);
 
-        return "weixin/swork/publichome";
+        return "weixin/spublic/publichome";
     }
     /**
      * sui
@@ -66,7 +75,7 @@ public class SworkPublicController extends BaseController {
     public String sui( ModelMap modelMap, HttpServletRequest request) throws JSONException {
     	 
 
-        return "weixin/swork/sui";
+        return "weixin/spublic/sui";
     }
     
     /**
@@ -75,26 +84,22 @@ public class SworkPublicController extends BaseController {
      * @throws JSONException
      */
     @RequestMapping(params = "publicForm")
-    public String publicForm(QuestFormInfo questFormInfo, ModelMap modelMap, HttpServletRequest request) throws JSONException {
+    public String publicForm(String case_desc,String rpt_attch ,String case_pos_desc,  ModelMap modelMap, HttpServletRequest request) throws JSONException {
         String caseId = "";
-        if (questFormInfo != null && !"".equals(questFormInfo)) {
+        
             //取用户信息
             user = (User) request.getSession().getAttribute("wx_user_info");
-            if (questFormInfo.getQuestType() != null && !"".equals(questFormInfo.getQuestType())) {
+            
                 HashMap<String, String> params = new HashMap<>();
                 //绑定字段
-                //问题类型
-//                params.put(CallServiceKey.CASE_TYPE_ID.getKey(), questFormInfo.getQuestType());
-                //事发区域
-//                params.put(CallServiceKey.GRID_ID.getKey(), questFormInfo.getEventRegionId());
                 //问题描述
-                params.put(CallServiceKey.CASE_DESC.getKey(), questFormInfo.getQuestDesc());
+                params.put(CallServiceKey.CASE_DESC.getKey(),URLDecoder.decode(case_desc,"utf-8") );
                 //位置描述
-                params.put(CallServiceKey.CASE_POS_DESC.getKey(), questFormInfo.getSpaceDesc());
+                params.put(CallServiceKey.CASE_POS_DESC.getKey(), URLDecoder.decode(case_pos_desc,"utf-8"));
                 //问题程度
-                params.put(CallServiceKey.DAMAGE_LID.getKey(), questFormInfo.getQuestLevel());
+                //params.put(CallServiceKey.DAMAGE_LID.getKey(), questFormInfo.getQuestLevel());
                 //附件ID
-                params.put(CallServiceKey.RPT_ATTACH.getKey(), questFormInfo.getPid());
+                params.put(CallServiceKey.RPT_ATTACH.getKey(), rpt_attch);
 
                 String returnStr = "";
                 returnStr = SworkCommonServiceImpl.getInstance()
@@ -109,11 +114,11 @@ public class SworkPublicController extends BaseController {
                 }
                 System.out.println(returnStr);
                 System.out.println(a.get("v_case_id"));
-            }
+            
 
-        }
+        
 
-        return "weixin/swork/sui";
+        return "weixin/spublic/sui";
     }
     /**
      * 地图
@@ -124,7 +129,7 @@ public class SworkPublicController extends BaseController {
     public String publicMap( ModelMap modelMap, HttpServletRequest request) throws JSONException {
     	 
 
-        return "weixin/swork/map";
+        return "weixin/spublic/map";
     }
     
     /**
@@ -135,17 +140,18 @@ public class SworkPublicController extends BaseController {
     @RequestMapping(params = "publicCore")
     public String publicCore( ModelMap modelMap, HttpServletRequest request) throws JSONException {
     	 
-        return "weixin/swork/core";
+        return "weixin/spublic/core";
     }
     /**
      * 新闻
      *
      * @throws JSONException
+     * @author guilong.liang
      */
     @RequestMapping(params = "publicNews")
     public String publicNews( ModelMap modelMap, HttpServletRequest request) throws JSONException {
     	
-    	return "weixin/swork/cityNews";
+    	return "weixin/sshare/cityNews";
     }
   
   
