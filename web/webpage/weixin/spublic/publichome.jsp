@@ -19,13 +19,13 @@
     <span class="icon icon-phone"></span>
   </button>
   
-  <button class="button pull-right">
+  <button class="button pull-right" onclick="hisop()">
   <span class="icon icon-share "></span>
 <!--     按钮 -->
   </button>
   <h1 class="title">投诉举报</h1>
 </header>
-<div class="content">
+<div class="content" style="top:0.4rem">
  <form  method="post" name="parentCheck" id="parentCheck">
   <div class="list-block">
     <ul>

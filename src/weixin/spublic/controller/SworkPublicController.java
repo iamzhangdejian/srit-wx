@@ -126,10 +126,12 @@ public class SworkPublicController extends BaseController {
      * @throws JSONException
      */
     @RequestMapping(params = "publicMap")
-    public String publicMap( ModelMap modelMap, HttpServletRequest request) throws JSONException {
+    public String publicMap( ModelMap modelMap, HttpServletRequest request,Model model) throws JSONException {
     	 
 
+
         return "weixin/spublic/map";
+
     }
     
     /**

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <title>新建待办事项</title>
+  <title>公众服务平台</title>
 <!--   <script src="plug-in/swork/plugin/sui/js/jquery.min.js"></script> -->
 <!--   <link href="plug-in/swork/plugin/sui/css/sm-extend.css" rel="stylesheet"> -->
 <!--   <link href="plug-in/swork/plugin/sui/css/sm-extend.min.css" rel="stylesheet"> -->
@@ -18,10 +18,17 @@
 	<script src="plug-in/swork/plugin/sui/js/colorful.js"></script>
 	<script src="plug-in/swork/main/forum.js"></script>
 	<script src="plug-in/swork/main/cityNews.js"></script>
-	<script src="plug-in/swork/main/replypost.js"></script>					
+	<script src="plug-in/swork/main/replypost.js"></script>
+	<script src="plug-in/swork/main/history.js"></script>					
   	<link href="plug-in/swork/plugin/sui/css/sm.min.css" rel="stylesheet">
   	<script type="text/javascript" src="plug-in/swork/plugin/sui/js/jquery.min.js"></script>
   	<script type="text/javascript" src="plug-in/swork/main/sui.js"></script>
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm-city-picker.js"></script> -->
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm-city-picker.min.js"></script> -->
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm-extend.js"></script> -->
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm-extend.min.js"></script> -->
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm.js"></script> -->
+<!--   <script type="text/javascript" src="plug-in/swork/plugin/sui/js/sm.min.js"></script> -->
 </head>
 
 <body>
@@ -50,7 +57,7 @@
 <!--     <span class="tab-label">个人中心</span> -->
   </a>
 </nav>
-  <div class="content" id="divid">
+  <div class="content" id="divid" >
 
   </div>
 <!-- </div> -->
