@@ -28,7 +28,7 @@ var posttypeid="";
 	            	startNum=startNum+1;
 	            	$.ajax({
 		    			async : false,
-		    				url : serverURL+"&currentPage="+startNum+"&pageSize=5&posttypeid="+posttypeid, // 跨域URL
+		    				url : serverURL+"&currentPage="+startNum+"&pageSize=8&posttypeid="+posttypeid, // 跨域URL
 		    				type : 'get',
 		    				data : startNum,
 		    				timeout : 4000, 
@@ -37,7 +37,7 @@ var posttypeid="";
 		    					if(json.length>0){
 		    						json = eval('(' + json + ')');
 		    					}
-		    					var pageCount=(json[0])/5;
+		    					var pageCount=(json[0])/8;
 		    					if(parseInt(pageCount)==pageCount){
 		    						count =pageCount;
 		    					}else{
@@ -148,7 +148,7 @@ var posttypeid="";
 	    		//count = 5; //总页数
 	    		$.ajax({
 	    			async : false,
-	    				url : serverURL+"&currentPage="+startNum+"&pageSize=5&posttypeid="+posttypeid, // 跨域URL
+	    				url : serverURL+"&currentPage="+startNum+"&pageSize=8&posttypeid="+posttypeid, // 跨域URL
 	    				type : 'get',
 	    				data : startNum,
 	    				timeout : 4000, 
@@ -157,7 +157,7 @@ var posttypeid="";
 	    					if(json.length>0){
 	    						json = eval('(' + json + ')');
 	    					}
-	    					var pageCount=(json[0])/5;
+	    					var pageCount=(json[0])/8;
 	    					if(parseInt(pageCount)==pageCount){
 	    						count =pageCount;
 	    					}else{

@@ -41,6 +41,14 @@ public class SshareNewsController {
         return "weixin/sshare/newsPage";
     }
     /**
+     * 便民服务，并且跳转页面
+     */
+    @RequestMapping(params = "swLt")
+    public String swLt() {
+    	
+    	return "weixin/sshare/lunTan";
+    }
+    /**
      * 获取新闻列表信息
      *
      * @param currentPage
@@ -61,20 +69,31 @@ public class SshareNewsController {
                  .sworkCallService(RequestCode.NEWS_LIST, "", params);
          AjaxJson jon = new AjaxJson();
          jon.setObj(returnStr);
-//         System.out.println("returnStr=====>"+returnStr);
+         System.out.println("returnStr=====>"+returnStr);
          return returnStr;
     }
 
 
+    /**
+     * 新闻详细跳转
+     *
+     *
+     * @throws JSONException
+     */
+    @RequestMapping(params = "newsContent")
+    public String getNewsContent(ModelMap modelMap,String news_id, HttpServletRequest request) throws JSONException {
+        return "weixin/sshare/newsDetail";
+    }
     /**
      * 获取新闻详细信息
      *
      *
      * @throws JSONException
      */
-    @RequestMapping(params = "newsContent")
-    public String getNewsContent(ModelMap modelMap, HttpServletRequest request) throws JSONException {
-    	String news_id = request.getParameter("news_id");
+    @RequestMapping(params = "newsContentlist")
+    @ResponseBody
+    public String newsContentlist(ModelMap modelMap,String news_id, HttpServletRequest request) throws JSONException {
+//    	String news_id = request.getParameter("news_id");
         //取用户信息
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<>();
@@ -86,9 +105,12 @@ public class SshareNewsController {
 //        JSONObject obj = JSONObject.
 //        System.out.println("obj====>"+obj);
 //        JSONObject a = new JSONObject(returnStr);
-        modelMap.put("a", returnStr);//事发区域
-
-        return "weixin/sshare/newsDetail";
+//        modelMap.put("a", returnStr);//事发区域
+        AjaxJson jon = new AjaxJson();
+        jon.setObj(returnStr);
+        System.out.println("params====>"+returnStr);
+        return returnStr;
     }
-
+    
+    
 }

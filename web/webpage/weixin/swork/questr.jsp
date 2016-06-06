@@ -446,8 +446,6 @@ function Function(lab,div){
 						           $("#pid").val($("#pid").val() + "," + atr);
 						           alert( $("#pid").val());
 						       }
-								
-								 
 							});
             	          },
             	          fail: function (res) {
@@ -535,15 +533,13 @@ function validate(){
 	}else{
 		return true;
 	}
-	
-	
 //  案件类别
     if(chooseType==1){
     	alert(1);
     }
 }
 </script>
-<script src="plug-in/swork/plugin/banners/js/slider.js"></script>
+<!-- <script src="plug-in/swork/plugin/banners/js/slider.js"></script> -->
 
 </body>
 </html>

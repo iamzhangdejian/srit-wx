@@ -4501,7 +4501,8 @@ ol.ui-listview .ui-li-jsnumbering:before {
 	left: 1px;
 	top: 0;
 	max-height: 80px;
-	max-width: 80px
+	max-width: 100px
+/* 	max-width: 80px */
 }
 
 .ui-listview .ui-li-icon {

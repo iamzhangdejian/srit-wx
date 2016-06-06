@@ -52,7 +52,7 @@ public class SworkUserController extends BaseController {
 
 
     /**
-     * 问题跟踪，并且跳转页面
+     * 个人信息页面
      */
     @RequestMapping(params = "showuser")
     public String showUserInfo(ModelMap modelMap, HttpServletRequest request,Model model) {
@@ -66,12 +66,18 @@ public class SworkUserController extends BaseController {
             modelMap.put("user_token", user.getToken());
             modelMap.put("user_openid", user.getOpenID());
         }
+        System.out.println("user===>"+user);
+//        System.out.println("user_id===>"+ user.getUserID());
 //       获取调用微信接口验证参数
         String endUrl="?showuser";
         Map map = wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
 
-        return "weixin/swork/userinfo";
+        if ("110000113".equals(user.getRoleID())) {
+            return "weixin/spublic/core";
+        }else{
+        	return "weixin/swork/userinfo";
+        }
     }
 
 

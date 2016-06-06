@@ -90,7 +90,9 @@ public class SworkTaskController extends BaseController {
     @RequestMapping(params = "taskList")
     @ResponseBody
     public String taskList(String currentPage, String pageSize, HttpServletRequest request) {
+    	
         user = (User) request.getSession().getAttribute("wx_user_info");
+        
         HashMap<String, String> params = new HashMap<String, String>();
         // 获取案件类别编码
         params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(), "All");
@@ -98,7 +100,7 @@ public class SworkTaskController extends BaseController {
         params.put(CallServiceKey.PAGE_SIZE.getKey(), pageSize);
         String returnStr = SworkCommonServiceImpl.getInstance()
                 .sworkCallService(RequestCode.GET_TASK_LIST, user.getToken(), params);
-
+        System.out.println("returnStrTask====>"+returnStr);
         AjaxJson jon = new AjaxJson();
         jon.setObj(returnStr);
         return returnStr;
@@ -140,13 +142,14 @@ public class SworkTaskController extends BaseController {
     @RequestMapping(params = "taskDetail")
     public String taskDetail(ModelMap modelMap, HttpServletRequest request) throws JSONException {
         String caseId = request.getParameter("case_id");
+        System.out.println("caseId"+caseId);
         //取用户信息
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<>();
         params.put(CallServiceKey.CASE_ID.getKey(), caseId);
         String returnStr = "";
         returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.DETAIL_TASK_LIST, user.getToken(), params);
-        System.out.println(returnStr);
+        System.out.println("returnStrtask====>"+returnStr);
         JSONObject a = new JSONObject(returnStr);
         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
@@ -212,6 +215,7 @@ public class SworkTaskController extends BaseController {
     @ResponseBody
     public String historyRecord(String currentPage, String pageSize, HttpServletRequest request,Model model) {
         user = (User) request.getSession().getAttribute("wx_user_info");
+        
         HashMap<String, String> params = new HashMap<String, String>();
         // 获取案件类别编码
         params.put(CallServiceKey.CASE_BIZ_TYPE_ID.getKey(), "All");
@@ -220,11 +224,9 @@ public class SworkTaskController extends BaseController {
 //        params.put("", value)
         String returnStr = SworkCommonServiceImpl.getInstance()
                 .sworkCallService(RequestCode.HIS_TASK_LIST, user.getToken(), params);
-
+  System.out.println("returnStr===>"+returnStr);
         AjaxJson jon = new AjaxJson();
         jon.setObj(returnStr);
-        
-       
         return returnStr;
     }
     /**
@@ -243,17 +245,18 @@ public class SworkTaskController extends BaseController {
         System.out.println(request.getParameter("case_id"));
         String returnStr = "";
         returnStr = SworkCommonServiceImpl.getInstance().sworkCallService(RequestCode.DETAIL_TASK_LIST, user.getToken(), params);
-        System.out.println(returnStr);
+        System.out.println("returnStrhis===>"+returnStr);
         JSONObject a = new JSONObject(returnStr);
         modelMap.put("case_type_name", a.get("CASE_TYPE_NAME"));//案件类别
         modelMap.put("region_name", a.get("REGION_NAME"));//事发区域
         modelMap.put("case_pos_desc", a.get("CASE_POS_DESC"));//位置描述
         modelMap.put("case_desc", a.get("CASE_DESC"));//问题描述
         modelMap.put("rpt_time", a.get("RPT_TIME"));//上报时间
+        modelMap.put("file_path",a.get("FILE_PATH") );//图片
 //        获取微信接口验证参数
-        String endUrl="?hisDetail";
-        Map map=wechat.wxConfig(request, endUrl);
-        model.addAttribute("map", map);
+//        String endUrl="?hisDetail";
+//        Map map=wechat.wxConfig(request, endUrl);
+//        model.addAttribute("map", map);
         return "weixin/swork/histDetail";
     }
 

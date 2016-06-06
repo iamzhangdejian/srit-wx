@@ -256,10 +256,6 @@ public class SworkQuesrController extends BaseController {
         System.out.println(attStr);
 	  }
     
-    
-    
-    
-    
 
     /**
      * 调用系统服务进行附件上传

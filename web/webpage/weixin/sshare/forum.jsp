@@ -33,7 +33,8 @@
         }
     </style>
 </head>
-<body>
+<body >
+<div id="forum">
 <header class="bar bar-nav">
   <button class="button pull-right" onclick="post()">
  	<span class="icon icon-edit"></span>
@@ -41,7 +42,7 @@
   <h1 class="title">社区论坛</h1>
 </header>
 	<div class="content">
-		  <div class="buttons-tab" style="position: static;">
+		  <div class="buttons-tab" style="position: relative;z-index: 99999;">
 		    <a href="javascript:void(0)"    onclick="forumMap(0,'全部')" class="tab-link active button">全部</a>
 		    <a href="javascript:void(0)"    onclick="forumMap(1,0)" class="tab-link button">旧货</a>
 		    <a href="javascript:void(0)"    onclick="forumMap(2,1)" class="tab-link button">家政</a>
@@ -53,7 +54,7 @@
 		    <div class="tabs">
 		      <div id="tab1" class="tab active">
 		<!--         <div class="content-block"> -->
-		         <div id="wrapper" class="list-block media-list" style="margin:-1.87rem 0;border-width:0px;">
+		         <div id="wrapper" class="list-block media-list" style="margin:-2.2rem 0;border-width:0px;    padding-top: 2.2rem;">
 			        <ul id="lbul">
 			            
 			        </ul>
@@ -109,6 +110,7 @@
         
         
     </script>
+    </div>
 </body>
 
 </html>

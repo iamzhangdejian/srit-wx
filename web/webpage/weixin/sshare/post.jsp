@@ -12,8 +12,8 @@
 </head>
 <body>
 <header class="bar bar-nav">
-  <button class="button pull-left" onclick="forum()">
-    <span class="icon icon-left"></span>
+  <button class="button pull-left" onclick="forum()" Style="color: white;">
+<!--     <span class="icon icon-left"></span> -->
     返回
   </button>
   
@@ -22,7 +22,7 @@
 </header>
 <div class="content">
  <form action="SworkPublicController.do?publicForm" method="post" name="parentCheck" id="parentCheck">
-  <div class="list-block">
+  <div class="list-block" style="margin:0.4rem 0;">
     <ul>
     <li class="align-top">
         <div class="item-content">
@@ -90,7 +90,13 @@
           </div>
         </div>
       </li>
-      
+      <li class="align-top">
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-comment"></i></div>
+          <div class="item-inner">
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
   <div class="content-block">

@@ -50,22 +50,69 @@
     body .mainmenu li:nth-child(8n+3) {background-color:#f3b613}
     body .mainmenu li:nth-child(8n+2) {background-color:#ff8a4a}
     body .mainmenu li:nth-child(8n+1) {background-color:#fc5366}
-    #divcss5{ margin:-7px auto;} ;
+    #divcss5{ margin:-5px auto;} ;
 </style>
 </head>
 
 <body>
+<header class="bar bar-nav">
+  
+  <h1 class="title">个人中心</h1>
+</header>
+
 <div class="hd">
-        <div id="divcss5"><img id="imgd" src="http://uc.zhibo8.cc/data/avatar/000/74/79/39_avatar_small.jpg"  style="border-radius: 50%;margin:0 auto;display:table-cell;vertical-align: middle;"/></div> 
-        <p class="page_desc">3231231</p>
+        <div id="divcss5"><img id="imgd" src="http://uc.zhibo8.cc/data/avatar/000/74/79/39_avatar_small.jpg" style="border-radius: 50%;margin:0 auto;display:table-cell;vertical-align: middle;"></div> 
+<%--         <p class="page_desc">${phoneNum}</p> --%>
     </div>
-    <ul class="mainmenu">
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/user.png" /></b><span>账号</span></a></li>
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/code.png" /></b><span>密码</span></a></li>
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/message.png" /></b><span>草稿箱</span></a></li>
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/report.png" /></b><span>版本</span></a></li>
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/city.png" /></b><span>设置</span></a></li>
-        <li><a href="/" ><b><img src="plug-in/swork/default/images/task.png" /></b><span>关于</span></a></li>
-    </ul>
+    <div class="">
+  	<div class="list-block"style=" margin: 0.1rem;">
+            <!--         <div class="weui_cells_title">表单</div> -->
+            <div class="weui_cells weui_cells_access">
+                <a class="weui_cell" href="javascript:;" style="height: 53px;">
+                    <div class="weui_cell_bd weui_cell_primary">
+<!--                         <p>姓名</p> -->
+                        <label class="weui_label" style="display: inline-block">姓名</label>
+                        <label class="" style="float: right;color: #1b1b19;">${user_name}</label>
+						
+                    </div>
+<!--                     <div class="weui_cell_ft"><label class="weui_label">南郊农场主管领导</label></div> -->
+                </a>
+                <a class="weui_cell" href="javascript:;" style="height: 45px;">
+                    <div class="weui_cell_bd weui_cell_primary">
+                    
+                        <label class="weui_label" style="display: inline-block">电话</label>
+                        <label class="" style="float: right;color: #1b1b19;">${phone_num}</label>
+                        </div>
+                </a>
+                <a class="weui_cell" href="javascript:;" style="height: 45px;">
+                    <div class="weui_cell_bd weui_cell_primary">
+<!--                         <p>角色</p> -->
+                       <label class="weui_label" style="display: inline-block">角色</label>
+                        <label class="" style="float: right;color: #1b1b19;">${role_name}</label>
+                    </div>
+                </a>
+                <a class="weui_cell" href="javascript:;" style="height: 45px;">
+                    <div class="weui_cell_bd weui_cell_primary">
+<!--                         <p>部门</p> -->
+                        <label class="weui_label" style="display: inline-block">部门</label>
+                        <label class="" style="float: right;color: #1b1b19;">${depart_name}</label>
+                    </div>
+                </a>
+
+            </div
+
+        </div>
+	</div>
+	<div class="content-block" style="padding-top: 9px;">
+		<div class="row">
+	<!--       <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div> -->
+		  <div class="col-100">					
+	<!--       <input class="weui_btn weui_btn_primary" href="javascript:" type="submit" id="showTooltipss" -->
+	<!--                            value="提交21"/> -->
+		  <a href="javascript:void(0)" onclick="chomesubmit()" class="button button-big button-fill">修改</a></div>
+		</div>
+  </div>
+
+</div>
 </body>
 </html>

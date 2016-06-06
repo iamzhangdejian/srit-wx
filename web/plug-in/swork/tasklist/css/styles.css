@@ -116,7 +116,8 @@
 	font-size:14px ;position: absolute; text-align: right;right: 0px; bottom: 0px;z-index: 999; text-shadow : 0px 0px 0px #FFFFFF;}
 
 
-	.ui-listview  .ui-li-thumb{ top: 8px; left:8px ;max-width: 64px !important; max-height: 64px !important;text-align: center;}
+	.ui-listview  .ui-li-thumb{ top: 8px; left:8px ;text-align: center;}
+/* 	.ui-listview  .ui-li-thumb{ top: 8px; left:8px ;max-width: 64px !important; max-height: 64px !important;text-align: center;} */
 
 
 	.button-cart{
@@ -625,7 +626,8 @@
 /* 	} */
 
 /* 	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 50px !important; max-height: 50px !important;text-align: center;} */
-	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 56px !important; text-align: center;height:69px;}
+	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ; text-align: center;height:69px;}
+/* 	.list-fpmx .ui-li-thumb{ top: 8px; left:8px ;max-width: 56px !important; text-align: center;height:69px;} */
 	.list-fpmx .ui-link-inherit{padding-left: 68px!important}
 	.list-fpmx .pot-normal, .list-fpmx .pot-back, .list-fpmx .pot-wast {
 		font-weight: bold;

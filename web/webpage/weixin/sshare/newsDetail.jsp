@@ -9,30 +9,26 @@
     <link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
     <script src="plug-in/jquery/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript">
-		$(function(){
-        var lr=${a};
-		$(".page_title").html(lr[0].news_title);
-		$("#subtitle").html(lr[0].news_subtitle);
-		var newsPicture="http://192.168.1.33:8099/sritplat-mserver/"+lr[0].news_attachment;
-		$("#imageNews").attr("src",newsPicture);
-		$('p').html(lr[0].news_content);
-// 		var lrs=JSON.parse(lr);
-		console.info(lr);
-// 		console.info(lr[0].news_title)
-// 		var lrs=eval('(' + lr + ')');;
-// 		alert(lrs.news_subtitle);
-		}); 
-	</script>
+   
 </head>
 <body>
+<header class="bar bar-nav">
+  <button class="button pull-left" onclick="showNews()" style="color: white;">
+<!--     <span class="icon icon-left"></span> -->
+ 	返回
+  </button>
+  
+  
+  <h1 class="title">新闻详细内容</h1>
+</header>
+<div class="content">
 <div class="hd">
-    <h1 class="page_title" style="max-width: 100%"> </h1>
+    <h4 class="page_title" style="max-width: 100%;font-size: 24px;margin-top: -3rem;"> </h4>
 </div>
-<div class="bd">
+<div class="bd" style="margin-top: -6rem;">
     <article class="weui_article">
-        <h1 id="subtitle"></h1>
-        <section>
+        <h1 id="subtitle"     style="font-size: 15px;"></h1>
+        <section style="font-size: 16px">
 <!--             <h2 class="title">章标题</h2> -->
             <section>
 <!--                 <h3>1.1 节标题</h3> -->
@@ -51,7 +47,7 @@
         </section>
     </article>
 </div>
-
+</div>
 </body>
 
 </html>

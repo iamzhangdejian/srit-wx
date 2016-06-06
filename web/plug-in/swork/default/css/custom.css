@@ -36,13 +36,13 @@ html,body{
 }
 
 .weui_cell_primary{
-	border-bottom:1px solid #b5b5b5;
+	border-bottom:1px solid #f1ebeb;
 	padding:10px 0;
 	font-size:14px;
-	color:#b5b5b5;
+	color:#f1ebeb;
 }
 .weui_cells_access .weui_cell:active .weui_cell_primary{
-	border-color:#5885cb;
+	border-color:#f1ebeb;
 }
 .weui_label{
 	font-size:12px;

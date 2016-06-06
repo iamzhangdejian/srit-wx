@@ -39,7 +39,7 @@ p {
 </style>
 </head>
 <body>
-
+<div id="news">
 <!-- 锁定的目录栏 -->
 	<header class="bar bar-nav">
 		<!--   <button class="button pull-right" onclick="post()"> -->
@@ -58,7 +58,7 @@ p {
 				<div id="tab1" class="tab active">
 					<!--         <div class="content-block"> -->
 					<div id="wrapper" class="list-block media-list"
-						style="margin: -1.87rem 0; border-width: 0px;">
+						style="margin: -1.87rem 0; border-width: 0px;z-index: 9999999;position: initial;">
 						<ul id="lbuln">
 
 						</ul>
@@ -72,7 +72,7 @@ p {
 	  <input id="news_id" name="news_id" class="weui_input" readOnly="true"/>
 	 </form>
 	</div>
-	
+</div>	
 </body>
 
 </html>

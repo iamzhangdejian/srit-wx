@@ -25,6 +25,7 @@
 </head>
 <body ontouchstart>
 	<div class="container js_container"></div>
+        <p class="page_desc">${phoneNum}</p>
 	<script type="text/html" id="tpl_home">
 <div class="page">
     <div class="hd">
@@ -81,7 +82,7 @@
                     信息公开
                 </p>
             </a>
-            <a href="sworkController.do?goPage&page=mpoint" class="weui_grid js_grid">
+            <a href="sshareNewsController.do?swLt" class="weui_grid js_grid">
                 <div class="weui_grid_icon">
                     <img src="plug-in/swork/default/images/heart.png" alt="">
                 </div>

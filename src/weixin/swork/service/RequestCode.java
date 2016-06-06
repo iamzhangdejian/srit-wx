@@ -38,4 +38,6 @@ public class RequestCode {
     public static final String ADD_BBS_POSTINFO="2015";
     //新增论坛帖子评论
     public static final String ADD_BBS_POSTBIZINFO="2016";
+    //公众历史记录查询
+    public static final String PUBLIC_HIS_LIST="7002";
 }

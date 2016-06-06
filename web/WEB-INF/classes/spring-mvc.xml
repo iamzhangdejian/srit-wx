@@ -61,12 +61,13 @@
 		</property>
 	</bean>
 
-    <!-- Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 -->
-    <bean id="beanNameViewResolver"
-          class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0">
-    </bean>
-    <!-- Excel 处理 根据用户输入进行对象处理 -->
-    <bean id="jeecgExcelView" class="org.jeecgframework.poi.excel.view.JeecgSingleExcelView" />
+	<!-- Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 -->
+	<bean id="beanNameViewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver"
+		p:order="0">
+	</bean>
+	<!-- Excel 处理 根据用户输入进行对象处理 -->
+	<bean id="jeecgExcelView" class="org.jeecgframework.poi.excel.view.JeecgSingleExcelView" />
 	<!-- 方言 -->
 	<bean id="dialect"
 		class="org.jeecgframework.core.common.hibernate.dialect.DialectFactoryBean">
@@ -113,28 +114,28 @@
 						<value>loginController.do?login</value>
 						<value>loginController.do?checkuser</value>
 						<value>cmsMenuController.do?index</value>
-					    <value>cmsArticleController.do?cmsArticleListShow</value>
-					    <value>cmsArticleController.do?datagridwx</value>
-					    <value>cmsArticleController.do?cmsArticleShow</value>
-					    <value>cmsController.do?goPage</value>
-					    <value>cmsController.do?getMenuList</value>
-					    <value>wechatController.do?wechat</value>
-					    <value>zpController.do?iscontinue</value>
-					    <value>zpController.do?saveZpPrize</value>
-					    <value>zpController.do?getZpPize</value>
-					    <value>zpController.do?saverecord</value>
-					    <value>zpController.do?ggl_new</value>
-					    <value>zpController.do?ggl</value>
-					    <value>zpController.do?zp</value>
-					    <value>zpController.do?goZhuanpan</value>
-					    <value>weixinCmsStyleController.do?upload</value>
-					    <value>newsItemController.do?newscontent</value>
-					    <!-- 保存用户 -->
-					    <value>userController.do?saveUser</value>
-					    <value>weixinLinksucaiController.do?link</value>
-					    <value>zpController.do?goGglNew</value>
-					    <value>zpController.do?doGgl</value>
-					    <value>zpController.do?saveRecord</value>
+						<value>cmsArticleController.do?cmsArticleListShow</value>
+						<value>cmsArticleController.do?datagridwx</value>
+						<value>cmsArticleController.do?cmsArticleShow</value>
+						<value>cmsController.do?goPage</value>
+						<value>cmsController.do?getMenuList</value>
+						<value>wechatController.do?wechat</value>
+						<value>zpController.do?iscontinue</value>
+						<value>zpController.do?saveZpPrize</value>
+						<value>zpController.do?getZpPize</value>
+						<value>zpController.do?saverecord</value>
+						<value>zpController.do?ggl_new</value>
+						<value>zpController.do?ggl</value>
+						<value>zpController.do?zp</value>
+						<value>zpController.do?goZhuanpan</value>
+						<value>weixinCmsStyleController.do?upload</value>
+						<value>newsItemController.do?newscontent</value>
+						<!-- 保存用户 -->
+						<value>userController.do?saveUser</value>
+						<value>weixinLinksucaiController.do?link</value>
+						<value>zpController.do?goGglNew</value>
+						<value>zpController.do?doGgl</value>
+						<value>zpController.do?saveRecord</value>
 						<value>sworkController.do?goPage</value>
 						<!-- 登陆 -->
 						<value>sworkOpenWxController.do?goAuthor</value>
@@ -143,31 +144,76 @@
 						<value>sworkLoginController.do?swMain</value>
 						<!--手机验证 -->
 						<value>sworkLoginController.do?swPhone</value>
+						<!--社管通账号绑定、登陆 -->
+						<value>sworkLoginController.do?swLoginUser</value>
+						<value>sworkLoginController.do?swUser</value>
 						<!-- 问题上报 -->
 						<value>sworkLoginController.do?swQuest</value>
 						<!-- 选择类别 -->
 						<value>sworkQuesrController.do?getTree</value>
-<!-- 						上传附件 -->
+						<!-- 上传附件 -->
 						<value>sworkQuesrController.do?upLoad</value>
 						<!-- 问题跟踪跳转 -->
-						<value>sworkLoginController.do?swTrack</value>
+						<value>sworkTaskController.do?swTrack</value>
 						<!-- 历史记录跳转 -->
 						<value>sworkTaskController.do?swHistory</value>
-						<!-- 历史记录详细页面 -->
+						<!-- 历史记录列表 -->
+						<value>sworkTaskController.do?historyRecord</value>
+						<!-- 历史记录详情 -->
 						<value>sworkTaskController.do?hisDetail</value>
 						<!-- 问题核查跳转 -->
-						<value>sworkLoginController.do?swTaskcheck</value>
-						<!--taskList  -->
-						<value>sworkQuesrController.do?taskList</value>
-<!-- 						问题上报表单提交 -->
+						<value>sworkTaskController.do?swTaskcheck</value>
+						<!--taskList -->
+						<value>sworkTaskController.do?taskList</value>
+						<!-- 问题上报表单提交 -->
 						<value>sworkQuesrController.do?questForm</value>
 						<!-- 核实核查上报 -->
 						<value>sworkTaskController.do?taskForm</value>
 						<value>sworkQuesrController.do?uploadSave</value>
 						<!-- 案件详细信息 -->
 						<value>sworkTaskController.do?taskDetail</value>
-						<!--历史列表查询 -->
-						<value>sworkQuesrController.do?historyRecord</value>
+						<!-- sui -->
+						<value>SworkPublicController.do?sui</value>
+						<!-- 公众首页 -->
+						<value>SworkPublicController.do?publichome</value>
+						<!-- 投诉举报表单提交 -->
+						<value>SworkPublicController.do?publicForm</value>
+						<!-- 地图 -->
+						<value>SworkPublicController.do?publicMap</value>
+						<!-- 社区论坛 -->
+						<value>SworkShareController.do?shareForum</value>
+						<!-- 社区论坛数据列表 -->
+						<value>SworkShareController.do?shareList</value>
+						<!-- 回复贴列表 -->
+						<value>SworkShareController.do?replyList</value>
+						<!--社区论坛发帖 -->
+						<value>SworkShareController.do?sharePost</value>
+						<!--回复帖子页面 -->
+						<value>SworkShareController.do?shareReplypost</value>
+						<!--新增帖子提交方法 -->
+						<value>SworkShareController.do?shareFrom</value>
+						<!--回复帖子评论提交方法 -->
+						<value>SworkShareController.do?poatsubmit</value>
+						<!--个人中心 -->
+						<value>SworkPublicController.do?publicCore</value>
+						<!--新闻页面 -->
+						<value>SworkPublicController.do?publicNews</value>
+						<!--跳到新闻界面 -->
+						<value>sshareNewsController.do?swCity</value>
+						<!--获取新闻列表 -->
+						<value>sshareNewsController.do?newsList</value>
+						<!--获取新闻详细 -->
+						<value>sshareNewsController.do?newsContent</value>
+						<!-- 历史记录页面 -->
+						<value>SworkPublicController.do?publiHistory</value>
+						<!-- 个人信息跳转 -->
+						<value>sworkUserController.do?showuser</value>
+						<!-- 历史记录列表数据查询 -->
+						<value>SworkPublicController.do?histask</value>
+						<!-- 历史记详细信息 -->
+						<value>SworkPublicController.do?recordinfo</value>
+						<!-- 新闻详细页面获取信息 -->
+						<value>sshareNewsController.do?newsContentlist</value>
 					</list>
 				</property>
 				<!-- 模糊匹配 -->

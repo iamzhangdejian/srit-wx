@@ -1,5 +1,10 @@
 package weixin.swork.controller;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.util.PropertiesUtil;
@@ -11,13 +16,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import weixin.guanjia.account.service.WeixinAccountServiceI;
 import weixin.swork.entity.User;
 import weixin.swork.service.impl.SworkCommonServiceImpl;
+import weixin.swork.util.Wechat;
 import weixin.swork.util.WeiXinOpenOAuthHelper;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登陆初始化控制器
@@ -40,6 +44,7 @@ public class SworkOpenWxController extends BaseController {
 
     private String appId;
     private String appSecret;
+	private static Wechat wechat = new Wechat();
 
     public SworkOpenWxController() {
         PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
@@ -117,6 +122,9 @@ public class SworkOpenWxController extends BaseController {
         if (user != null && !"".equals(user)) {
             //验证通过
             isHasBound = true;
+            if ("110000113".equals(user.getRoleID())) {
+                page = "public";
+            }
             request.getSession().setAttribute("wx_user_info", user);
         } else {
             //验证失败-进入验证页面
@@ -125,7 +133,7 @@ public class SworkOpenWxController extends BaseController {
         }
         System.out.println("验证是否通过=================>>" + String.valueOf(isHasBound));
         System.out.println("获取微信OPENID==============>>" + openId);
-        return goPage(model, page);
+        return goPage(model, page,request);
     }
 
     /**
@@ -135,7 +143,7 @@ public class SworkOpenWxController extends BaseController {
      * @param page
      * @return
      */
-    private String goPage(Model model, String page) {
+    private String goPage(Model model, String page,HttpServletRequest request) {
         //如果已经绑定则进入主界面，如未绑定则进入验证绑定界面
         if (!isHasBound) {
             model.addAttribute("openid", openId);
@@ -145,6 +153,19 @@ public class SworkOpenWxController extends BaseController {
         if ("main".equals(page)) {
             model.addAttribute("phoneNum", user.getRealName());
             return "weixin/swork/main";
+        }
+        //公众
+        if ("public".equals(page)) {
+            model.addAttribute("phoneNum", user.getRealName());
+            String code=request.getParameter("code");
+            System.out.println("code========>"+code);
+            String urlE="?openWws&page=main&code="+code+"&state=1";
+       	 	String endUrl=urlE;
+            Map map=wechat.wxConfig(request, endUrl);
+            model.addAttribute("map", map);
+            request.getSession().setAttribute("map", map);
+            
+            return "weixin/spublic/sui";
         }
         //登录界面
         if ("swUser".equals(page)) {

@@ -169,6 +169,7 @@ function loadData() {
 			data : startNum,
 			timeout : 4000,
 			success : function(datas) {
+//				console.info(datas);
 				var json  = $.parseJSON(datas);  
 				 json = eval('(' + json + ')'); 
 				 
@@ -202,6 +203,12 @@ function desplay(json){
 		  }else{
 			  SEND_TIME=json[i].SEND_TIME;
 		  }
+		  var OCCUR_TIME;
+		  if(json[i].OCCUR_TIME==null || json[i].OCCUR_TIME =="undefined"){
+			  OCCUR_TIME="";
+		  }else{
+			  OCCUR_TIME=json[i].OCCUR_TIME;
+		  }
 		  var CASE_TYPE_NAME;
 		  if(json[i].CASE_TYPE_NAME==null || json[i].CASE_TYPE_NAME == "undefined"){
 			  CASE_TYPE_NAME="";
@@ -214,11 +221,11 @@ function desplay(json){
 		  }else{
 			  SEND_OP_INFO=json[i].SEND_OP_INFO;
 		  }
-		  var CASE_POS_DESC;
-		  if(json[i].CASE_POS_DESC==null || json[i].CASE_POS_DESC == "undefined"){
-			  CASE_POS_DESC="";
+		  var CASE_DESC;
+		  if(json[i].CASE_DESC==null || json[i].CASE_DESC == "undefined"){
+			  CASE_DESC="暂无描述";
 		  }else{
-			  CASE_POS_DESC=json[i].CASE_POS_DESC;
+			  CASE_DESC=json[i].CASE_DESC;
 		  } 
 		  var CASE_BIZ_TYPE_NAME;
 		  if(json[i].CASE_BIZ_TYPE_NAME==null || json[i].CASE_BIZ_TYPE_NAME == "undefined"){
@@ -244,11 +251,17 @@ function desplay(json){
 		  }else{
 			  CASE_BIZ_SN=json[i].CASE_BIZ_SN;
 		  }
-		  htmls+='<li><a style="display:block;" href="javascript:"  onclick="showHis('+CASE_ID+')"<img src="">'
-		  htmls+='<p>案卷编号：<span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_CODE+'</span></p>';
-		  htmls+='<p>案件类别：<span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_TYPE_NAME+'</span></p>';
-		  htmls+='<p>位置描述：<span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_POS_DESC+'</span></p>';
-		  htmls+='<p>派发时间：<span class="text-no" style="font-size:15px;font-weight:normal" >'+SEND_TIME+'</span></p>';
+		  var FILE_PATH;
+		  if(json[i].FILE_PATH==null || json[i].FILE_PATH == "undefined"){
+			  FILE_PATH="";
+		  }else{
+			  FILE_PATH="http://192.168.1.232:9089/imageserver/"+json[i].FILE_PATH;
+		  }
+		  htmls+='<li><a style="display:block;margin-left: 52px;" href="javascript:"  onclick="showHis('+CASE_ID+')" ><img style="height:75px;width:100px;" src="'+FILE_PATH+'">'
+		  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_CODE+'</span></p>';
+		  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_TYPE_NAME+'</span></p>';
+		  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal" >'+CASE_DESC+'</span></p>';
+		  htmls+='<p>(上报)<span class="text-no" style="font-size:15px;font-weight:normal" >'+OCCUR_TIME+'</span></p>';
 		  htmls+='</a></li>' 
 	  };    
 //	 datas = '<li> <a href="fpmx.html"> <img src="images/ic_wast.png" alt=""> <p>发票代码：<span class="text-no">0200000000</span></p> <p>发票号码：<span class="text-no">00001234</span></p> </a>  </li>'
@@ -283,6 +296,7 @@ function myAlert(text) {
 	showMyAlert(text);
 	setTimeout(hideLoading, 2000);
 }
+
 function showLoading() {
 	$.mobile.loadingMessageTextVisible = true;
 	$.mobile.showPageLoadingMsg("a", "加载中...");

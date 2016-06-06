@@ -80,6 +80,19 @@ public class Wechat {
 //        model.addAttribute("map", map);
         return map;
     }
+//    获取验证wx.config是否通过的方法的参数
+    public static Map<String , String> suiConfig(HttpServletRequest request,String endUrl){
+    	PropertiesUtil properties = new PropertiesUtil("sysConfig.properties");
+    	String appId = properties.readProperty("appId");
+    	String appSecret = properties.readProperty("appSecret");
+//        String urlEnd = "?hisDetail";
+    	String urlEnd = endUrl;
+    	
+    	System.out.println("urlend====>" + endUrl);
+    	Map map = new Wechat().jsConfig(endUrl, appId, appSecret);
+//        model.addAttribute("map", map);
+    	return map;
+    }
     
     
 //    从微信服务器获取上传照片并保存到本地服务器方法
@@ -137,10 +150,13 @@ public class Wechat {
         outs.close();
       //传入借口数据对象  返回ID
         AttachBase attachBase = new AttachBase();
+        System.out.println("data===>"+data);
         attachBase.setBinaryInfo(data);
+        
         attachBase.setAttachInfoisUrl("0");
         attachBase.setAttachType("3");// 视频4 音频5
         attachBase.setAttachExtendName("jpg");
+        System.out.println("files.length===>"+String.valueOf(files.length()));
         attachBase.setAttachSize(String.valueOf(files.length()));
         String attStr = SworkCommonServiceImpl.getInstance().sworkAttachLoad(userToken, attachBase);
         map.put("attStr", attStr);

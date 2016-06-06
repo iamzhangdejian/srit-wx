@@ -155,8 +155,8 @@ public class SworkLoginController extends BaseController {
      */
     @RequestMapping(params = "swQuest")
     public String uploadImg(HttpServletRequest request, Model model) {
-        String endUrl="?swQuest";
-        Map map=wechat.wxConfig(request, endUrl);
+        String endUrl = "?swQuest";
+        Map map = wechat.wxConfig(request, endUrl);
         model.addAttribute("map", map);
 //        return "weixin/swork/questr";
         return "weixin/swork/questr";
@@ -171,6 +171,8 @@ public class SworkLoginController extends BaseController {
     @RequestMapping(params = "swPhone")
     public String swPhone(String phoneNum, ModelMap modelMap,
                           HttpServletRequest request) {
+
+        String gotoPage = "";
         String openId = (String) request.getSession().getAttribute("openid");
 
         if (openId == null || "".equals(openId)) {
@@ -186,19 +188,33 @@ public class SworkLoginController extends BaseController {
         if (user != null && !"".equals(user)) {
             request.getSession().setAttribute("wx_user_info", user);
             request.getSession().setAttribute("phoneNum", phoneNum);
-            return "weixin/spublic/sui";
+            gotoPage = "weixin/spublic/sui";
+        } else {
+            // 通过手机号进行注册
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put(CallServiceKey.PHONE_NUM.getKey(), phoneNum);
+            params.put(CallServiceKey.PASSWORD.getKey(), phoneNum);
+            params.put(CallServiceKey.OPENID.getKey(), openId);
+            params.put(CallServiceKey.USER_NAME.getKey(), phoneNum);
+            params.put(CallServiceKey.EMAIL_ADDRESS.getKey(), "sz@163.com");
+            String resultRegis = SworkCommonServiceImpl.getInstance().sworkCallService(
+                    RequestCode.REGISTER, "", params);
+            System.out.println("注册接口反馈========>>" + resultRegis);
+            if (resultRegis != null && !"".equals(resultRegis)) {
+            	User usernew = SworkCommonServiceImpl.getInstance().sworkUserOauthService(
+                        openId);
+            	 if (usernew != null && !"".equals(usernew)) {
+                     request.getSession().setAttribute("wx_user_info", usernew);
+                    // request.getSession().setAttribute("phoneNum", phoneNum);
+                 }
+            	 request.getSession().setAttribute("phoneNum", phoneNum);
+            	
+                gotoPage = "weixin/spublic/sui";
+            } else {
+                gotoPage = "common/error";
+            }
         }
-
-        // 通过手机号进行注册
-        HashMap<String, String> params = new HashMap<String, String>();
-        params.put(CallServiceKey.PHONE_NUM.getKey(), phoneNum);
-        params.put(CallServiceKey.PASSWORD.getKey(), phoneNum);
-        params.put(CallServiceKey.OPENID.getKey(), openId);
-        params.put(CallServiceKey.USER_NAME.getKey(), phoneNum);
-        params.put(CallServiceKey.EMAIL_ADDRESS.getKey(), "sz@163.com");
-        SworkCommonServiceImpl.getInstance().sworkCallService(
-                RequestCode.REGISTER, "", params);
-        return "weixin/swork/wxuserauthor";
+        return gotoPage;
     }
 
     /**
@@ -222,7 +238,7 @@ public class SworkLoginController extends BaseController {
         params.put(CallServiceKey.PASSWORD.getKey(), password);
         params.put(CallServiceKey.OPENID.getKey(), openId);
         params.put(CallServiceKey.RESULT.getKey(), "0");
-
+        
         String datas = SworkCommonServiceImpl.getInstance().sworkCallService(
                 RequestCode.OPENCODE, "", params);
         System.out.println("return===============>>" + datas);
@@ -235,6 +251,8 @@ public class SworkLoginController extends BaseController {
         }
         System.out.println("result===============>" + result);
         if (result.equals("1")) {
+            User user = SworkCommonServiceImpl.getInstance().sworkLoginService(userName, password);
+            request.getSession().setAttribute("wx_user_info", user);
             return "weixin/swork/main";
         } else {
             return "weixin/swork/login";

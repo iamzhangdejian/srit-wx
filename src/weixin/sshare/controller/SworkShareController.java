@@ -91,8 +91,8 @@ public class SworkShareController extends BaseController {
         user = (User) request.getSession().getAttribute("wx_user_info");
         HashMap<String, String> params = new HashMap<String, String>();
         // 获取案件类别编码
-        if(!"".equals(posttypeid) && posttypeid !=null && posttypeid !="全部" ){
-        	 params.put(CallServiceKey.V_POST_TYPE_ID.getKey(),posttypeid);
+        if(!"".equals(posttypeid) && posttypeid !=null && posttypeid !="" ){
+        	 params.put(CallServiceKey.POST_TYPE_ID.getKey(),posttypeid);
         }
         params.put(CallServiceKey.CURRENT_PAGE.getKey(),currentPage);
         params.put(CallServiceKey.PAGE_SIZE.getKey(),pageSize);

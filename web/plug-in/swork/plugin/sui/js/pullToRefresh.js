@@ -5,7 +5,7 @@
  */
 var refresher = {
 	info: {
-		"pullDownLable": "下拉刷新...",
+		"pullDownLable": "",
 		"pullingDownLable": "刷新...",
 		"pullUpLable": "上拉加载更多...",
 		"pullingUpLable": "加载更多...",

@@ -83,8 +83,11 @@ public enum CallServiceKey {
     //评论者id
     V_POST_REPLY_USER_ID("v_post_reply_user_id"),
     //评论者姓名
-    V_POST_REPLY_USER_NAME("v_post_reply_user_name"),;
-
+    V_POST_REPLY_USER_NAME("v_post_reply_user_name"),
+    //待处理和已处理
+    CASE_STATUS_ID("case_status_id"),
+    //案件级别
+    V_CASE_LEVEL_ID("v_case_level_id"),;
     private String key;
 
     private CallServiceKey(String key) {

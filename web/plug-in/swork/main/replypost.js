@@ -123,7 +123,7 @@ var postidq="";
 		    								//$("#fpmxList").listview("refresh");
 		    								setTimeout(function() { // <-- Simulate network congestion, remove setTimeout from production!			
 		    								if (Number(replyNum) >= Number(count)) {
-		    									myAlert('已加载完全部信息');
+		    									//myAlert('已加载完全部信息');
 		    								}
 		    							}, 1500);
 		    							}
@@ -133,11 +133,11 @@ var postidq="";
 		    				error : function(xhr) {
 		    					//jsonp 方式此方法不被触发
 		    					//请求出错处理 
-		    					myAlert("请求出错(请检查相关度网络状况.)");
-		    					myScroll.replyrefresh();
+		    					//myAlert("请求出错(请检查相关度网络状况.)");
+		    					myScroll.refresh();
 		    				}
 		    			});
-	                wrapper.replyrefresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+	                wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
 	                
 	            }, 1000);
 	        }
@@ -237,7 +237,7 @@ var postidq="";
 	    								//$("#fpmxList").listview("refresh");
 	    								setTimeout(function() { // <-- Simulate network congestion, remove setTimeout from production!			
 	    								if (Number(replyNum) >= Number(count)) {
-	    									myAlert('已加载完全部信息');
+	    									//myAlert('已加载完全部信息');
 	    								}
 	    							}, 1500);
 	    							}
@@ -247,10 +247,16 @@ var postidq="";
 	    				error : function(xhr) {
 	    					//jsonp 方式此方法不被触发
 	    					//请求出错处理 
-	    					myAlert("请求出错(请检查相关度网络状况.)");
+	    					//myAlert("请求出错(请检查相关度网络状况.)");
 	    					myScroll.refresh();
 	    				}
 	    			});
+	        }
+	        function refresh(){
+	        	$('#replyul li').remove();
+//	        	$("#replyul").append("");
+	        	replyNum=1;
+	        	replyinitial();
 	        }
 	        function replyrefresh(){
 	        	$('#replyul li').remove();

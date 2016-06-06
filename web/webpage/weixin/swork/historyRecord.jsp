@@ -6,10 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
 <title>历史列表</title>
-	<link rel="stylesheet" href="plug-in/swork/tasklist/css/jquery.mobile.min.css" />
+<!-- 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/jquery.mobile.min.css" /> -->
+<!-- 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/theme/theme.min.css" /> -->
+<!-- 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/styles.css" /> -->
+<!-- 	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/> -->
+<!--     <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/> -->
+<!-- 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/customtask.css" /> -->
+<link rel="stylesheet" href="plug-in/swork/tasklist/css/jquery.mobile.min.css" />
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/theme/theme.min.css" />
 	<link rel="stylesheet" href="plug-in/swork/tasklist/css/styles.css" />
-	<link rel="stylesheet" href="plug-in/swork/tasklist/css/customtask.css" />
+	<link rel="stylesheet" href="plug-in/swork/default/css/weui.css"/>
+    <link rel="stylesheet" href="plug-in/swork/default/css/example.css"/>
+    <link rel="stylesheet" href="plug-in/swork/tasklist/css/customtask.css" />
 	<script src="plug-in/swork/tasklist/js/jquery.min.js"></script>
 	<script src="plug-in/swork/tasklist/js/mobileinit.js"></script>
 	<script src="plug-in/swork/tasklist/js/jquery.mobile.min.js"></script>
@@ -23,7 +31,7 @@
 </script>
 	<style type="text/css">
 	.ui-content{
-	padding:30 !important;
+	padding:40 !important;
 }
 .ui-content .ui-listview, .ui-panel-inner>.ui-listview{
 	margin:0px !important;
@@ -35,7 +43,7 @@
 	padding:0 !important;
 }
 .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li{
-	padding:0 68px !important;
+	padding:3px 68px !important;
 }
 .list-fpmx a.ui-link-inherit{
 	padding:0 !important;
@@ -46,6 +54,15 @@
 }
 .ui-li-desc{
  	margin:3px 0 3px 0 !important;
+}
+body{
+   line-height:1.2  !important;
+}
+.ui-btn-up-a{
+border-bottom:1px solid #cccccc!important;
+border-left:0px solid #cccccc!important;
+border-right:0px solid #cccccc!important;
+border-top:1px solid #cccccc!important; 
 }
 	</style>
 </head>
@@ -60,7 +77,7 @@
 			isInit=0;
 			serverURL = "sworkTaskController.do?historyRecord"; //服务器地址
 			startNum = 1;//当前页
-			//count = 5; //总页数
+// 			count = 5; //总页数
 			$.ajax({
 				async : false,
 					url : serverURL+"&currentPage="+startNum+"&pageSize=5", // 跨域URL
@@ -104,7 +121,7 @@
 							  }
 							  var CASE_DESC;
 							  if(json[i].CASE_DESC==null || json[i].CASE_DESC == "undefined"){
-								  CASE_DESC="";
+								  CASE_DESC="暂无描述";
 							  }else{
 								  CASE_DESC=json[i].CASE_DESC;
 							  }
@@ -132,14 +149,21 @@
 							  }else{
 								  CASE_BIZ_SN=json[i].CASE_BIZ_SN;
 							  }
+							  var FILE_PATH;
+							  if(json[i].FILE_PATH==null || json[i].FILE_PATH == "undefined"){
+								  FILE_PATH="";
+							  }else{
+								  FILE_PATH="http://192.168.1.232:9089/imageserver/"+json[i].FILE_PATH;
+// 								  FILE_PATH="http://tzezt.bjtzh.gov.cn/ImageManager/"+json[i].FILE_PATH;
+							  }
 							  
 							  
 // 							  htmls+='<li><a href="javascript:"  onclick="openNew(\''+CASE_BIZ_SN+'\',\''+CASE_ID+'\',\''+CASE_CODE+'\',\''+SEND_OP_INFO+'\',\''+CASE_POS_DESC+'\',\''+CASE_BIZ_TYPE_NAME+'\',\''+CASE_BIZ_TYPE_ID+'\')"<img src="">'
-							  htmls+='<li><a href="javascript:" onclick="showHis(\''+CASE_ID+'\')"<img src="">'
-							  htmls+='<p>案卷编号：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_CODE+'</span></p>';
-							  htmls+='<p>案件类别：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_TYPE_NAME+'</span></p>';
-							  htmls+='<p>问题描述：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_DESC+'</span></p>';
-							  htmls+='<p>上报时间：<span class="text-no" style="font-size:15px;font-weight:normal">'+OCCUR_TIME+'</span></p>';
+							  htmls+='<li><a href="javascript:" onclick="showHis(\''+CASE_ID+'\')" style="margin-left: 52px;"><img style="height:75px;width:100px;" src="'+FILE_PATH+'">'
+							  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_CODE+'</span></p>';
+							  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_TYPE_NAME+'</span></p>';
+							  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_DESC+'</span></p>';
+							  htmls+='<p>(上报)<span class="text-no" style="font-size:15px;font-weight:normal">'+OCCUR_TIME+'</span></p>';
 							  htmls+='</a></li>' 
 						  };
 								if(htmls!=null && htmls!=""){
@@ -173,7 +197,7 @@
 			<div id="pullDown" >
 				<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 			</div>
-			<div style="margin: 10px 0px; padding:5px;">
+			<div style="margin: 13px 0px; padding:8px;">
 			</div>
 			<ul data-role="listview" data-theme="a" class="list-fpmx" id="fpmxList">
 			</ul>

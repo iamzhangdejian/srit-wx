@@ -111,7 +111,7 @@ border-top:1px solid #cccccc!important;
 							  }
 							  var CASE_TYPE_NAME;
 							  if(json[i].CASE_TYPE_NAME==null || json[i].CASE_TYPE_NAME == "undefined"){
-								  CASE_TYPE_NAME="";
+								  CASE_TYPE_NAME="暂无类别描述";
 							  }else{
 								  CASE_TYPE_NAME=json[i].CASE_TYPE_NAME;
 							  }
@@ -123,7 +123,7 @@ border-top:1px solid #cccccc!important;
 							  }
 							  var CASE_POS_DESC;
 							  if(json[i].CASE_POS_DESC==null || json[i].CASE_POS_DESC == "undefined"){
-								  CASE_POS_DESC="";
+								  CASE_POS_DESC="暂无位置描述";
 							  }else{
 								  CASE_POS_DESC=json[i].CASE_POS_DESC;
 							  } 
@@ -151,13 +151,19 @@ border-top:1px solid #cccccc!important;
 							  }else{
 								  CASE_BIZ_SN=json[i].CASE_BIZ_SN;
 							  }
+							  var FILE_PATH;
+							  if(json[i].FILE_PATH==null || json[i].FILE_PATH == "undefined"){
+								  FILE_PATH="";
+							  }else{
+								  FILE_PATH="http://192.168.1.232:9089/imageserver/"+json[i].FILE_PATH;
+							  }
 							  
 							  
-							  htmls+='<li><a href="javascript:"  onclick="openNew(\''+CASE_BIZ_SN+'\',\''+CASE_ID+'\',\''+CASE_CODE+'\',\''+SEND_OP_INFO+'\',\''+CASE_POS_DESC+'\',\''+CASE_BIZ_TYPE_NAME+'\',\''+CASE_BIZ_TYPE_ID+'\')"<img src="">'
-							  htmls+='<p>案卷编号：<span class="text-no"  style="font-size:15px;font-weight:normal">'+CASE_CODE+'</span></p>';
-							  htmls+='<p>案件类别：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_TYPE_NAME+'</span></p>';
-							  htmls+='<p>位置描述：<span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_POS_DESC+'</span></p>';
-							  htmls+='<p>派发时间：<span class="text-no" style="font-size:15px;font-weight:normal">'+SEND_TIME+'</span></p>';
+							  htmls+='<li><a href="javascript:" style="    margin-left: 10%;"   onclick="openNew(\''+CASE_BIZ_SN+'\',\''+CASE_ID+'\',\''+CASE_CODE+'\',\''+SEND_OP_INFO+'\',\''+CASE_POS_DESC+'\',\''+CASE_BIZ_TYPE_NAME+'\',\''+CASE_BIZ_TYPE_ID+'\')"><img style="height:75px;width:90px;" src="'+FILE_PATH+'">'
+							  htmls+='<p><span class="text-no"  style="font-size:15px;font-weight:normal">'+CASE_CODE+'</span></p>';
+							  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_TYPE_NAME+'</span></p>';
+							  htmls+='<p><span class="text-no" style="font-size:15px;font-weight:normal">'+CASE_POS_DESC+'</span></p>';
+							  htmls+='<p>(派发)<span class="text-no" style="font-size:15px;font-weight:normal">'+SEND_TIME+'</span></p>';
 							  htmls+='</a></li>' 
 						  };
 								if(htmls!=null && htmls!=""){

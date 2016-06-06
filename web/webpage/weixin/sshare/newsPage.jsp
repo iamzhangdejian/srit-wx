@@ -12,8 +12,8 @@
 	<script src="plug-in/swork/plugin/sui/js/iscroll.js"></script>
 	<script src="plug-in/swork/plugin/sui/js/pullToRefresh.js"></script>
 	<script src="plug-in/swork/plugin/sui/js/colorful.js"></script>
-	<script src="plug-in/swork/plugin/sui/js/cityNews.js"></script>					
-  <link href="plug-in/swork/plugin/sui/css/sm.min.css" rel="stylesheet">
+	<script src="plug-in/swork/main/cityNews.js"></script>					
+  	<link href="plug-in/swork/plugin/sui/css/sm.min.css" rel="stylesheet">
   <script type="text/javascript" src="plug-in/swork/tasklist/js/jquery.min.js"></script>
 </head>
 
